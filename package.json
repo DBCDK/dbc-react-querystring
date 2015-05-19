@@ -1,0 +1,25 @@
+{
+  "name": "dbc-react-querystring",
+  "version": "0.0.1",
+  "description": "React components used to create a visual querystring",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DBCDK/dbc-react-querystring"
+  },
+  "keywords": [
+    "react",
+    "dbc",
+    "openSearch",
+    "cql"
+  ],
+  "author": "team ux",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DBCDK/dbc-react-querystring/issues"
+  },
+  "homepage": "https://github.com/DBCDK/dbc-react-querystring"
+}
