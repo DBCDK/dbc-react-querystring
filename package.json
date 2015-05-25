@@ -4,7 +4,8 @@
   "description": "React components used to create a visual querystring",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha tests",
+    "watch": "babel ./src --watch -d dist"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/DBCDK/dbc-react-querystring/issues"
   },
-  "homepage": "https://github.com/DBCDK/dbc-react-querystring"
+  "homepage": "https://github.com/DBCDK/dbc-react-querystring",
+  "devDependencies": {
+    "babel": "^5.4.7"
+  }
 }
