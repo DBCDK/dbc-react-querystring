@@ -17,10 +17,10 @@ var extractCss = new extractTextPlugin('style.css')
 
 module.exports = {
     entry: {
-        app: __dirname + '/src/examples/app.js'
+        app: __dirname + '/examples/app.js'
     },
     output: {
-        path: __dirname + '/src/examples/public',
+        path: __dirname + '/examples/public',
         filename: 'bundle.js'
     },
     module: {
