@@ -9,30 +9,47 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-require('./searchField.scss');
+// Import styling
 
+require('./ButtonStrongSearchField.scss');
+
+function _getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+/**
+ * Main component for showing searchstring as buttons
+ */
 var ButtonStringSearchField = _react2['default'].createClass({
     displayName: 'ButtonStringSearchField',
 
     render: function render() {
+        var buttonElements = this.props.query.map(function (query) {
+            return _react2['default'].createElement(ButtonString, { text: query.text, query: query.query, color: _getRandomColor() });
+        });
         return _react2['default'].createElement(
             'div',
-            null,
-            _react2['default'].createElement(ButtonString, { color: 'blue', string: 'harry' }),
-            _react2['default'].createElement(ButtonString, { color: 'red', string: 'potter' }),
-            _react2['default'].createElement(ButtonString, { color: 'green', string: 'styles' }),
-            _react2['default'].createElement(ButtonString, { string: 'bla bla bla' })
+            { className: 'buttonfield' },
+            buttonElements
         );
     }
 });
 
+/**
+ * Component for creating buttons
+ */
 var ButtonString = _react2['default'].createClass({
     displayName: 'ButtonString',
 
     render: function render() {
         var _props = this.props;
         var color = _props.color;
-        var string = _props.string;
+        var text = _props.text;
 
         var classes = new Array('buttonstring');
         var style = {
@@ -44,7 +61,7 @@ var ButtonString = _react2['default'].createClass({
             _react2['default'].createElement(
                 'span',
                 { className: 'text' },
-                string
+                text
             ),
             _react2['default'].createElement(
                 'span',
