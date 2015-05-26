@@ -1,10 +1,15 @@
 "use strict";
 import React from 'react';
+import './searchField.scss';
 
 const SearchField = React.createClass({
     render() {
         return (
-            <div><ButtonString color="blue" string="test"/></div>
+            <div>
+                <ButtonString color="blue" string="harry"/>
+                <ButtonString color="red" string="potter"/>
+                <ButtonString color="green" string="styles"/>
+            </div>
         );
     }
 });
@@ -13,9 +18,12 @@ let ButtonString = React.createClass({
     render() {
         let {color, string} = this.props;
 
-        let classes = new Array('buttonstring', color);
+        let classes = new Array('buttonstring');
+        let style = {
+            backgroundColor : color
+        }
         return (
-            <div className={classes}><span className="string">{string}</span><span className="buttonstring-close">x</span></div>
+            <div className={classes.join(' ')} style={style}><span className="text">{string}</span><span className="remove">x</span></div>
         );
     }
 });
