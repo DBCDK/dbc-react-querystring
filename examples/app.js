@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchField from '../src/components/ButtonStringSearchField.react.js';
+import SearchField from '../src/components/SearchField/SearchField.js';
 
 let data = {}
 data.query = [

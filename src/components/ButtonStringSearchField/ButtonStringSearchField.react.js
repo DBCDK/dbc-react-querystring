@@ -2,8 +2,9 @@
 import React from 'react';
 
 // Import styling
-import './ButtonStrongSearchField.scss';
-
+if (!process.env.NODE_ENV == 'test'){
+    require('./ButtonStrongSearchField.scss');
+}
 
 function _getRandomColor() {
     var letters = '0123456789ABCDEF'.split('');
@@ -26,7 +27,7 @@ const ButtonStringSearchField = React.createClass({
             <div className='buttonfield'>
                 {buttonElements}
             </div>
-        );
+        );''
     }
 });
 
