@@ -1,11 +1,15 @@
 "use strict";
 import React from 'react';
+import _ from 'lodash';
+import ButtonString from './ButtonString.react.js';
+import './ButtonStrongSearchField.scss';
 
-// Import styling
-if (!process.env.NODE_ENV == 'test'){
-    require('./ButtonStrongSearchField.scss');
-}
-
+/**
+ * Get a random color. This function is used for development only. Should be exchanged with a colorscheme
+ *
+ * @returns {string}
+ * @private
+ */
 function _getRandomColor() {
     var letters = '0123456789ABCDEF'.split('');
     var color = '#';
@@ -19,32 +23,45 @@ function _getRandomColor() {
  * Main component for showing searchstring as buttons
  */
 const ButtonStringSearchField = React.createClass({
+    /**
+     * Remove query element with index
+     *
+     * @param index
+     */
+    remove(index){
+        console.log(this.state.query, 'index');
+        let queries = _.remove(this.state.query, (query) => {
+            return (query.index != index);
+        });
+        console.log(queries);
+        this.setState({query: queries});
+    },
+
+    getInitialState(){
+        let queries = this.props.query.map((query)=>{
+            query.color = _getRandomColor()
+            return query;
+        });
+        return {
+            query: queries
+        }
+    },
+
     render() {
-        const buttonElements = this.props.query.map((query)=>{
-            return (<ButtonString text={query.text} query={query.query} color={_getRandomColor()} />)
+        const buttonElements = this.state.query.map((query, index)=>{
+            return (<ButtonString
+              key={query.index}
+              index={query.index}
+              remove={this.remove}
+              text={query.text}
+              query={query.query}
+              color={query.color}
+            />)
         });
         return (
             <div className='buttonfield'>
+                <img />
                 {buttonElements}
-            </div>
-        );''
-    }
-});
-
-/**
- * Component for creating buttons
- */
-const ButtonString = React.createClass({
-    render() {
-        let {color, text} = this.props;
-
-        let classes = new Array('buttonstring');
-        let style = {
-            backgroundColor : color
-        }
-        return (
-            <div className={classes.join(' ')} style={style}>
-                <span className="text">{text}</span><span className="remove">x</span>
             </div>
         );
     }

@@ -4,10 +4,12 @@ import SearchField from '../src/components/SearchField/SearchField.js';
 let data = {}
 data.query = [
   {
+    index: 0,
     text: 'test',
     query: 'test'
   },
   {
+    index: 1,
     text: 'test2',
     query: 'test=test'
   }
