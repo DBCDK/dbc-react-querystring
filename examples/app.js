@@ -1,19 +1,5 @@
 import React from 'react';
-import SearchField from '../src/components/SearchField/SearchField.js';
+import SearchField from '../src/components/SearchField/SearchField.react';
 
-let data = {}
-data.query = [
-  {
-    index: 0,
-    text: 'test',
-    query: 'test'
-  },
-  {
-    index: 1,
-    text: 'test2',
-    query: 'test=test'
-  }
-]
-
-const element = React.createElement(SearchField, data);
+const element = React.createElement(SearchField);
 React.render(element, document.getElementById('searchfield'));
