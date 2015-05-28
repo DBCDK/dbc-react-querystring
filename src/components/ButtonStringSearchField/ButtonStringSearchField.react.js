@@ -23,24 +23,13 @@ function _getRandomColor() {
  * Main component for showing searchstring as buttons
  */
 const ButtonStringSearchField = React.createClass({
-    /**
-     * Remove query element with index
-     *
-     * @param index
-     */
-    remove(index){
-        console.log(this.state.query, 'index');
-        let queries = _.remove(this.state.query, (query) => {
-            return (query.index != index);
-        });
-        console.log(queries);
-        this.setState({query: queries});
-    },
 
     getInitialState(){
         let queries = this.props.query.map((query)=>{
-            query.color = _getRandomColor()
-            return query;
+            return {
+                text: query,
+                color: _getRandomColor()
+            };
         });
         return {
             query: queries
@@ -48,19 +37,18 @@ const ButtonStringSearchField = React.createClass({
     },
 
     render() {
-        const buttonElements = this.state.query.map((query, index)=>{
+        const {query, remove} = this.props;
+        const buttonElements = query.map((element, index)=>{
             return (<ButtonString
-              key={query.index}
-              index={query.index}
-              remove={this.remove}
-              text={query.text}
-              query={query.query}
-              color={query.color}
+              key={element}
+              index={element}
+              remove={remove.bind(null, element)}
+              text={element}
+              color={_getRandomColor()}
             />)
         });
         return (
             <div className='buttonfield'>
-                <img />
                 {buttonElements}
             </div>
         );
