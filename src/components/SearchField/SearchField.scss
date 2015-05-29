@@ -7,7 +7,7 @@ $line-height: 20px;
   border-radius: 3px;
   position: relative;
   input {
-    height: $height
+    height: $height;
     line-height: $line-height;
     margin: 0;
     padding: 0;
@@ -23,11 +23,24 @@ $line-height: 20px;
     padding: 0px 20px;
     border-radius: 0 3px 3px 0;
   }
+  .tokens-wrapper{
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+  }
   .tokens {
     position: absolute;
-    max-width: 80%;
+    max-width: 60%;
     left: 0;
     padding: 0 3px;
+    overflow: hidden;
+  }
+  .buttonfield {
+    //width: 1000px;
+    //position: absolute;
+    right: 0;
+    text-align: right;
+    direction: rtl;
   }
   .submit{
     position: absolute;

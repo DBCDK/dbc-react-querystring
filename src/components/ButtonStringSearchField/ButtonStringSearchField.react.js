@@ -49,7 +49,7 @@ const ButtonStringSearchField = React.createClass({
         });
         return (
             <div className='buttonfield'>
-                {buttonElements}
+                {buttonElements.reverse()}
             </div>
         );
     }

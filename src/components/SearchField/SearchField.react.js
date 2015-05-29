@@ -18,6 +18,13 @@ const SearchField = React.createClass({
       hasFocus: false
     }
   },
+  componentDidMount() {
+    let node = this.getDOMNode();
+
+    //node.querySelector('')
+    console.log(node.offsetWidth);
+  },
+
   render() {
     const {hasFocus, value, query, text} = this.state;
     const buttons = !hasFocus && (<ButtonStringSearchField query={query} remove={this.removeElement}/>) || null;
@@ -25,16 +32,22 @@ const SearchField = React.createClass({
       <div>
         <form onSubmit={this.onSubmit}>
           <ul className='searchfield-wrapper'>
-            <li className='tokens'>{buttons}</li>
+            <li className='tokens'>
+              <div className='tokens-wrapper'>{buttons}</div>
+            </li>
             <li className='inputfield'>
-              <input type='text' className='searchfield'
+              <input type='text'
+                     className='searchfield'
                      onChange={this._onKeyDown}
                      onFocus={this.setFocus.bind(this, true)}
                      onBlur={this.setFocus.bind(this, false)}
+                     onClick={this.setFocus.bind(this, true)}
                      value={text}
                 />
             </li>
-            <li className='submit'><input className='button small' type='submit' value='søg'/></li>
+            <li className='submit'>
+              <input className='button small' type='submit' value='søg'/>
+            </li>
           </ul>
         </form>
       </div>
@@ -47,12 +60,13 @@ const SearchField = React.createClass({
       query: query
     });
   },
+
   onSubmit(event) {
     event.preventDefault();
 
-    let text = this.state.text;
+    let query = this.state.text && this.state.text.split(' ') || this.state.query;
     this.setState({
-      query: text.split(' '),
+      query: query,
       text: '',
       hasFocus: false
     })
