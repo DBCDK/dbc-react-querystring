@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 import React from 'react';
 
 /**
@@ -11,19 +11,19 @@ import React from 'react';
  * index: index of the element
  */
 export default React.createClass({
-    render() {
-        let {color, text, remove, index} = this.props;
+  render() {
+    let {color, text, remove, index} = this.props;
 
-        // Background color is dynamic and therefore set inline
-        let style = {
-            backgroundColor : color
-        }
+    // Background color is dynamic and therefore set inline
+    let style = {
+      backgroundColor: color
+    };
 
-        return (
-            <div className='token' style={style}>
-                <span className="text">{text}</span>
-                <span className="remove" onClick={remove.bind(null, index)}>x</span>
-            </div>
-        );
-    }
+    return (
+      <div className='token' style={style}>
+        <span className="text">{text}</span>
+        <span className="remove" onClick={remove.bind(null, index)}>x</span>
+      </div>
+    );
+  }
 });

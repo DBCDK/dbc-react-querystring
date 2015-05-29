@@ -1,5 +1,6 @@
-"use strict";
+'use strict';
 import React from 'react';
+import _ from 'lodash';
 import TokenList from '../TokenList/TokenList.react.js';
 
 // Import styling
@@ -17,10 +18,10 @@ const SearchField = React.createClass({
       query: this.props.query || [],
       value: '',
       hasFocus: false
-    }
+    };
   },
   render() {
-    const {hasFocus, value, query, text} = this.state;
+    const {hasFocus, query, text} = this.state;
     const buttons = !hasFocus && (<TokenList query={query} remove={this._removeElement}/>) || null;
     return (
       <div>
@@ -62,12 +63,12 @@ const SearchField = React.createClass({
       query: query,
       text: '',
       hasFocus: false
-    })
+    });
   },
   _getQueryTexts() {
     return this.state.query.join(' ');
   },
-  _setFocus(state, event) {
+  _setFocus(state) {
     let text = state && this._getQueryTexts() || '';
     this.setState({hasFocus: state, text: text});
   },
@@ -78,9 +79,11 @@ const SearchField = React.createClass({
     }
     this.setState({text: text, hasFocus: true});
   },
-  _onChange: function (event, value) {
+  _onChange: function (event) {
     this.setState({text: event.target.value});
-    this.props.change && this.props.change(event.target.value)
+    if (this.props.change) {
+      this.props.change(event.target.value);
+    }
   }
 });
 

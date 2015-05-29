@@ -1,6 +1,5 @@
-"use strict";
+'use strict';
 import React from 'react';
-import _ from 'lodash';
 import Token from './Token.react';
 import './TokenList.scss';
 
@@ -39,7 +38,7 @@ export default React.createClass({
     });
     return {
       query: queries
-    }
+    };
   },
 
   render() {
@@ -47,7 +46,7 @@ export default React.createClass({
 
     // The order of tokens is reversed to handle that last token should be visible.
     // In the CSS direction is set to rlt, reversing the order again
-    const tokens = query.map((element, index)=> {
+    const tokens = query.map((element)=> {
 
       return (<Token
         key={element}
@@ -55,7 +54,7 @@ export default React.createClass({
         remove={remove.bind(null, element)}
         text={element}
         color={_getRandomColor()}
-        />)
+        />);
     }).reverse();
 
     return (
