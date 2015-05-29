@@ -24,7 +24,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-describe('Test the ButtonStringSearchField component', function () {
+describe('Test the TokenList component', function () {
   it('displays a string with a close button', function () {
     var state = { query: [{
         index: 'test',
@@ -33,7 +33,7 @@ describe('Test the ButtonStringSearchField component', function () {
         color: 'red'
       }] };
 
-    // Create ButtonStringSearchField Compontent
+    // Create TokenList Compontent
     var element = _react2['default'].createElement(_ButtonStringSearchFieldReactJs2['default'], state);
     var dom = _reactLibReactTestUtils2['default'].renderIntoDocument(element);
     // Test state

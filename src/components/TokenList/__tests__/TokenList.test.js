@@ -2,11 +2,11 @@
 import assert from 'assert';
 import {expect, should} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
-import ButtonStringSearchField from '../ButtonStringSearchField.react.js';
+import ButtonStringSearchField from '../TokenList.react.js';
 import ButtonString from '../ButtonString.react.js';
 import React from 'react';
 
-describe('Test the ButtonStringSearchField component', () => {
+describe('Test the TokenList component', () => {
   it('displays a string with a close button', ()=> {
     let state = {query: [{
       index : 'test',
@@ -15,7 +15,7 @@ describe('Test the ButtonStringSearchField component', () => {
       color: 'red'
     }]};
 
-    // Create ButtonStringSearchField Compontent
+    // Create TokenList Compontent
     let element = React.createElement(ButtonStringSearchField, state);
     let dom = TestUtils.renderIntoDocument(element);
     // Test state

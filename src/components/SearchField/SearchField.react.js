@@ -1,14 +1,15 @@
 "use strict";
 import React from 'react';
-import ButtonStringSearchField from '../ButtonStringSearchField/ButtonStringSearchField.react.js';
-const KEYCODES = {
-  ENTER_KEY_CODE: 13
-};
+import TokenList from '../TokenList/TokenList.react.js';
+
 // Import styling
 import './SearchField.scss';
 
 /**
  * Main component for showing searchstring as buttons
+ *
+ * Properties:
+ * query: an array of query elements. Only supports string elements for now.
  */
 const SearchField = React.createClass({
   getInitialState() {
@@ -18,19 +19,12 @@ const SearchField = React.createClass({
       hasFocus: false
     }
   },
-  componentDidMount() {
-    let node = this.getDOMNode();
-
-    //node.querySelector('')
-    console.log(node.offsetWidth);
-  },
-
   render() {
     const {hasFocus, value, query, text} = this.state;
-    const buttons = !hasFocus && (<ButtonStringSearchField query={query} remove={this.removeElement}/>) || null;
+    const buttons = !hasFocus && (<TokenList query={query} remove={this._removeElement}/>) || null;
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this._onSubmit}>
           <ul className='searchfield-wrapper'>
             <li className='tokens'>
               <div className='tokens-wrapper'>{buttons}</div>
@@ -39,9 +33,9 @@ const SearchField = React.createClass({
               <input type='text'
                      className='searchfield'
                      onChange={this._onKeyDown}
-                     onFocus={this.setFocus.bind(this, true)}
-                     onBlur={this.setFocus.bind(this, false)}
-                     onClick={this.setFocus.bind(this, true)}
+                     onFocus={this._setFocus.bind(this, true)}
+                     onBlur={this._setFocus.bind(this, false)}
+                     onClick={this._setFocus.bind(this, true)}
                      value={text}
                 />
             </li>
@@ -54,34 +48,33 @@ const SearchField = React.createClass({
     );
   },
 
-  removeElement(text) {
+  _removeElement(text) {
     let query = _.remove(this.state.query, (element)=> element !== text);
     this.setState({
       query: query
     });
   },
 
-  onSubmit(event) {
+  _onSubmit(event) {
     event.preventDefault();
-
-    let query = this.state.text && this.state.text.split(' ') || this.state.query;
+    let query = this.state.text && this.state.text.trim().split(' ') || this.state.query;
     this.setState({
       query: query,
       text: '',
       hasFocus: false
     })
   },
-  getQueryTexts() {
+  _getQueryTexts() {
     return this.state.query.join(' ');
   },
-  setFocus(state, event) {
-    let text = state && this.getQueryTexts() || '';
+  _setFocus(state, event) {
+    let text = state && this._getQueryTexts() || '';
     this.setState({hasFocus: state, text: text});
   },
   _onKeyDown(event) {
     let text = event.target.value;
     if (!this.state.hasFocus) {
-      text = this.getQueryTexts() + ' ' + text;
+      text = this._getQueryTexts() + ' ' + text;
     }
     this.setState({text: text, hasFocus: true});
   },

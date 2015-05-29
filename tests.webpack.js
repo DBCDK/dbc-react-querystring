@@ -2,5 +2,5 @@
 
 import 'babel-core/polyfill';
 
-let context = require.context('./src', true, /[^test]+\.js?$/);
+let context = require.context('./src', true, /\.test\.js?$/);
 context.keys().forEach(context);
