@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test karma start",
-    "lint:checkstyle": "eslint ./  -o report.xml -f checkstyle",
-    "lint": "eslint ./",
+    "lint:checkstyle": "eslint ./ src -o report.xml -f checkstyle",
+    "lint": "eslint ./src",
     "watch:babel": "babel ./src --watch -d dist",
     "watch:bundle": "webpack --progress --colors --watch -d"
   },
@@ -43,12 +43,14 @@
     "karma-mocha": "^0.1.10",
     "karma-mocha-reporter": "^1.0.2",
     "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon": "^1.0.4",
     "karma-webpack": "^1.5.1",
     "loader": "^0.1.6",
     "mocha-jenkins-reporter": "^0.1.8",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.1.2",
     "sass-loader": "^1.0.2",
+    "sinon": "^1.14.1",
     "webpack": "^1.9.10"
   },
   "dependencies": {

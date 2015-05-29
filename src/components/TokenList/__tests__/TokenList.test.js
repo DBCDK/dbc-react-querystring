@@ -1,28 +1,26 @@
-"use strict";
-import assert from 'assert';
-import {expect, should} from 'chai';
+'use strict';
+import {expect} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
-import ButtonStringSearchField from '../TokenList.react.js';
-import ButtonString from '../ButtonString.react.js';
+import TokenList from '../TokenList.react.js';
+import Token from '../Token.react.js';
 import React from 'react';
 
 describe('Test the TokenList component', () => {
   it('displays a string with a close button', ()=> {
-    let state = {query: [{
-      index : 'test',
-      text : 'test',
-      query: 'query',
-      color: 'red'
-    }]};
+    var remove = sinon.spy();
+    let state = {
+      query: ['test'],
+      remove: remove
+    };
 
     // Create TokenList Compontent
-    let element = React.createElement(ButtonStringSearchField, state);
+    let element = React.createElement(TokenList, state);
     let dom = TestUtils.renderIntoDocument(element);
     // Test state
     expect(dom.state.query).to.have.length(1);
 
     // Test button is created
-    let btnStrings = TestUtils.findRenderedComponentWithType(dom, ButtonString);
+    let btnStrings = TestUtils.findRenderedComponentWithType(dom, Token);
 
     // Test button has properties
     let label = TestUtils.findRenderedDOMComponentWithClass(btnStrings, 'text').getDOMNode().textContent;
@@ -32,9 +30,8 @@ describe('Test the TokenList component', () => {
 
     // Test remove button
     TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithClass(dom, 'remove'));
-    expect(TestUtils.scryRenderedComponentsWithType(dom, ButtonString).length).to.equal(0);
 
-    //Test state is updated
-    expect(dom.state).to.deep.equal({query: []});
+    // Test state is updated
+    expect(remove.called).to.be.ok;
   });
 });
