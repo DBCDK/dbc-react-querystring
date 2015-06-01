@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test karma start --single-run=true",
-    "test_watch": "NODE_ENV=test karma start",
-    "lint:checkstyle": "eslint ./ src -o report.xml -f checkstyle",
+    "test:watch": "NODE_ENV=test karma start",
+    "lint:checkstyle": "eslint ./src -o report.xml -f checkstyle",
     "lint": "eslint ./src",
     "watch:babel": "babel ./src --watch -d dist",
     "watch:bundle": "webpack --progress --colors --watch -d"
