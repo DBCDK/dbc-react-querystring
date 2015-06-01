@@ -2,14 +2,13 @@
   "name": "dbc-react-querystring",
   "version": "0.0.2",
   "description": "React components used to create a visual querystring",
-  "main": "index.js",
+  "main": "./src/index",
   "scripts": {
     "test": "NODE_ENV=test karma start --single-run=true",
     "test:watch": "NODE_ENV=test karma start",
     "lint:checkstyle": "eslint ./src -o report.xml -f checkstyle",
     "lint": "eslint ./src",
-    "watch:babel": "babel ./src --watch -d dist",
-    "watch:bundle": "webpack --progress --colors --watch -d"
+    "watch:babel": "babel ./src --watch -d dist"
   },
   "repository": {
     "type": "git",
