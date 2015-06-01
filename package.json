@@ -1,6 +1,6 @@
 {
   "name": "dbc-react-querystring",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React components used to create a visual querystring",
   "main": "index.js",
   "scripts": {
