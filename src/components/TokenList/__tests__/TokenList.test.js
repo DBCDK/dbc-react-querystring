@@ -7,7 +7,7 @@ import React from 'react';
 
 describe('Test the TokenList component', () => {
   it('displays a string with a close button', ()=> {
-    var remove = sinon.spy();
+    var remove = sinon.spy();  // eslint-disable-line block-scoped-var, no-undef
     let state = {
       query: ['test'],
       remove: remove
@@ -32,6 +32,6 @@ describe('Test the TokenList component', () => {
     TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithClass(dom, 'remove'));
 
     // Test state is updated
-    expect(remove.called).to.be.ok;
+    expect(remove.called).to.be.ok; // eslint-disable-line no-unused-expressions
   });
 });
