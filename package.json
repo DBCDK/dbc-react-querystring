@@ -4,7 +4,8 @@
   "description": "React components used to create a visual querystring",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test karma start",
+    "test": "NODE_ENV=test karma start --single-run=true",
+    "test_watch": "NODE_ENV=test karma start",
     "lint:checkstyle": "eslint ./ src -o report.xml -f checkstyle",
     "lint": "eslint ./src",
     "watch:babel": "babel ./src --watch -d dist",
@@ -40,6 +41,7 @@
     "extract-text-webpack-plugin": "^0.8.1",
     "karma": "^0.12.33",
     "karma-cli": "0.0.4",
+    "karma-junit-reporter": "^0.2.2",
     "karma-mocha": "^0.1.10",
     "karma-mocha-reporter": "^1.0.2",
     "karma-phantomjs-launcher": "^0.1.4",
