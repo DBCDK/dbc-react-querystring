@@ -9,12 +9,15 @@ module.exports = function(config) {
     preprocessors: {
       'tests.webpack.js': ['webpack']
     },
-    reporters: ['mocha'],
+    reporters: ['mocha', 'dots', 'junit'],
+    junitReporter: {
+      outputFile: 'output/test-results.xml'
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome', 'PhantomJS'],
+    browsers: ['PhantomJS'],
     singleRun: false,
     webpack: require('./webpack.test.config'),
     webpackMiddleware: {
