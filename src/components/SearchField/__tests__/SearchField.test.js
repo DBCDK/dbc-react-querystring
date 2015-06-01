@@ -23,27 +23,16 @@ describe('Test the SearchField component', () => {
 
     // remove first button
     let label = TestUtils.findRenderedDOMComponentWithClass(Tokens[0], 'text').getDOMNode().textContent;
-    expect(label).to.equal('test');
-    console.log(TestUtils.findRenderedDOMComponentWithClass(dom, 'remove').getDOMNode(), 'dom');
-    TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithClass(dom, 'remove')[0]);
+    expect(label).to.equal('test2');
+    TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithClass(Tokens[0], 'remove'));
     expect(dom.state.query).to.have.length(1);
     Tokens = TestUtils.scryRenderedComponentsWithType(dom, Token);
+
+    // Test that one has been removed
     expect(Tokens).to.have.length(1);
 
     // Make sure the right button is removed
-    label = TestUtils.findRenderedDOMComponentWithClass(Tokens[0], 'text').getDOMNode().textContent;
-    expect(label).to.equal('test');
-
-    /*    // Test button has properties
-        let label = TestUtils.findRenderedDOMComponentWithClass(btnStrings, 'text').getDOMNode().textContent;
-        let x = TestUtils.findRenderedDOMComponentWithClass(btnStrings, 'remove').getDOMNode().textContent;
-        expect(label).to.equal('test');
-        expect(x).to.equal('x');
-
-        // Test remove button
-        TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithClass(dom, 'remove'));
-
-        // Test state is updated
-        expect(remove.called).to.be.ok;*/
+    label = TestUtils.findRenderedDOMComponentWithClass(dom, 'text').getDOMNode().textContent;
+    expect(label).to.equal('test1');
   });
 });
