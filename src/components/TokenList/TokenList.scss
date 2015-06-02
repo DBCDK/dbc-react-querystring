@@ -1,5 +1,11 @@
 $height: 26px;
 
+.tokens-wrapper{
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  padding: 0 3px;
+}
 .tokens {
   position: absolute;
   max-width: 60%;
