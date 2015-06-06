@@ -3,9 +3,6 @@ import React from 'react';
 import _ from 'lodash';
 import TokenList from '../TokenList/TokenList.react.js';
 
-// Import styling
-import './SearchField.scss';
-
 /**
  * Main component for showing searchstring as buttons
  *
