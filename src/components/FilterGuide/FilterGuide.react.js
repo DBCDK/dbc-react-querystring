@@ -7,13 +7,15 @@ import _ from 'lodash';
  */
 const FilterGuide = React.createClass({
   propTypes: {
-    elements: React.proptypes.array.isRequired
+    elements: React.PropTypes.array.isRequired
   },
   render() {
     const {elements} = this.props;
     return (
-      <div className='filterguide'>
-        <FilterGuideList elements={elements}/>
+      <div className='filterguide-wrapper'>
+        <div className='filterguide'>
+          <FilterGuideList elements={elements}/>
+        </div>
       </div>
     );
   }
@@ -24,7 +26,7 @@ const FilterGuide = React.createClass({
  */
 const FilterGuideList = React.createClass({
   propTypes: {
-    elements: React.proptypes.array.isRequired
+    elements: React.PropTypes.array.isRequired
   },
   render() {
     const {elements} = this.props;
@@ -39,13 +41,13 @@ const FilterGuideList = React.createClass({
 
 const FilterGuideListElement = React.createClass({
   propTypes: {
-    label: React.proptypes.string.isRequired
+    label: React.PropTypes.string.isRequired
   },
   render() {
     const {label} = this.props;
     return (
       <li className='filterguide-list-element'>
-        <span className='label'>{label}</span>
+        <span className='element-label'>{label}</span>
       </li>
     );
   }

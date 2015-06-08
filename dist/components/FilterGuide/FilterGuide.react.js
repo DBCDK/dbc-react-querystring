@@ -20,15 +20,19 @@ var FilterGuide = _react2['default'].createClass({
   displayName: 'FilterGuide',
 
   propTypes: {
-    elements: _react2['default'].proptypes.array.isRequired
+    elements: _react2['default'].PropTypes.array.isRequired
   },
   render: function render() {
     var elements = this.props.elements;
 
     return _react2['default'].createElement(
       'div',
-      { className: 'filterguide' },
-      _react2['default'].createElement(FilterGuideList, { elements: elements })
+      { className: 'filterguide-wrapper' },
+      _react2['default'].createElement(
+        'div',
+        { className: 'filterguide' },
+        _react2['default'].createElement(FilterGuideList, { elements: elements })
+      )
     );
   }
 });
@@ -40,7 +44,7 @@ var FilterGuideList = _react2['default'].createClass({
   displayName: 'FilterGuideList',
 
   propTypes: {
-    elements: _react2['default'].proptypes.array.isRequired
+    elements: _react2['default'].PropTypes.array.isRequired
   },
   render: function render() {
     var elements = this.props.elements;
@@ -60,7 +64,7 @@ var FilterGuideListElement = _react2['default'].createClass({
   displayName: 'FilterGuideListElement',
 
   propTypes: {
-    label: _react2['default'].proptypes.string.isRequired
+    label: _react2['default'].PropTypes.string.isRequired
   },
   render: function render() {
     var label = this.props.label;
@@ -70,7 +74,7 @@ var FilterGuideListElement = _react2['default'].createClass({
       { className: 'filterguide-list-element' },
       _react2['default'].createElement(
         'span',
-        { className: 'label' },
+        { className: 'element-label' },
         label
       )
     );
