@@ -38,7 +38,6 @@
     "eslint-loader": "^0.11.2",
     "eslint-plugin-react": "^2.2.0",
     "expect": "^1.6.0",
-    "extract-text-webpack-plugin": "^0.8.1",
     "karma": "^0.12.33",
     "karma-cli": "0.0.4",
     "karma-junit-reporter": "^0.2.2",
@@ -50,8 +49,6 @@
     "loader": "^0.1.6",
     "mocha-jenkins-reporter": "^0.1.8",
     "node-libs-browser": "^0.5.2",
-    "node-sass": "^3.1.2",
-    "sass-loader": "^1.0.2",
     "sinon": "^1.14.1",
     "webpack": "^1.9.10"
   },
