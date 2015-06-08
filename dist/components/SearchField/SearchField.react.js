@@ -36,8 +36,8 @@ var SearchField = _react2['default'].createClass({
   render: function render() {
     var _state = this.state;
     var hasFocus = _state.hasFocus;
-    var query = _state.query;
     var text = _state.text;
+    var query = this.props.query;
 
     var buttons = !hasFocus && _react2['default'].createElement(_TokenListTokenListReactJs2['default'], { query: query, remove: this._removeElement }) || null;
     return _react2['default'].createElement(
@@ -81,25 +81,23 @@ var SearchField = _react2['default'].createClass({
   },
 
   _removeElement: function _removeElement(text) {
-    var query = _lodash2['default'].remove(this.state.query, function (element) {
+    var query = _lodash2['default'].remove(this.props.query, function (element) {
       return element !== text;
     });
-    this.setState({
-      query: query
-    });
+    this.props.update(query);
   },
 
   _onSubmit: function _onSubmit(event) {
     event.preventDefault();
-    var query = this.state.text && this.state.text.trim().split(' ') || this.state.query;
+    var query = this.state.text && this.state.text.trim().split(' ') || this.props.query;
+    this.props.update(query);
     this.setState({
-      query: query,
       text: '',
       hasFocus: false
     });
   },
   _getQueryTexts: function _getQueryTexts() {
-    return this.state.query.join(' ');
+    return this.props.query.join(' ');
   },
   _setFocus: function _setFocus(state) {
     var text = state && this._getQueryTexts() || '';

@@ -18,7 +18,8 @@ const SearchField = React.createClass({
     };
   },
   render() {
-    const {hasFocus, query, text} = this.state;
+    const {hasFocus, text} = this.state;
+    const {query} = this.props;
     const buttons = !hasFocus && (<TokenList query={query} remove={this._removeElement}/>) || null;
     return (
       <div>
@@ -47,23 +48,21 @@ const SearchField = React.createClass({
   },
 
   _removeElement(text) {
-    let query = _.remove(this.state.query, (element)=> element !== text);
-    this.setState({
-      query: query
-    });
+    let query = _.remove(this.props.query, (element)=> element !== text);
+    this.props.update(query);
   },
 
   _onSubmit(event) {
     event.preventDefault();
-    let query = this.state.text && this.state.text.trim().split(' ') || this.state.query;
+    let query = this.state.text && this.state.text.trim().split(' ') || this.props.query;
+    this.props.update(query);
     this.setState({
-      query: query,
       text: '',
       hasFocus: false
     });
   },
   _getQueryTexts() {
-    return this.state.query.join(' ');
+    return this.props.query.join(' ');
   },
   _setFocus(state) {
     let text = state && this._getQueryTexts() || '';
