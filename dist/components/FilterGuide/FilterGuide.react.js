@@ -20,18 +20,17 @@ var FilterGuide = _react2['default'].createClass({
   displayName: 'FilterGuide',
 
   propTypes: {
-    elements: _react2['default'].PropTypes.array.isRequired
+    elements: _react2['default'].PropTypes.array.isRequired,
+    select: _react2['default'].PropTypes.func.isRequired
   },
   render: function render() {
-    var elements = this.props.elements;
-
     return _react2['default'].createElement(
       'div',
       { className: 'filterguide-wrapper' },
       _react2['default'].createElement(
         'div',
         { className: 'filterguide' },
-        _react2['default'].createElement(FilterGuideList, { elements: elements })
+        _react2['default'].createElement(FilterGuideList, this.props)
       )
     );
   }
@@ -44,13 +43,16 @@ var FilterGuideList = _react2['default'].createClass({
   displayName: 'FilterGuideList',
 
   propTypes: {
-    elements: _react2['default'].PropTypes.array.isRequired
+    elements: _react2['default'].PropTypes.array.isRequired,
+    select: _react2['default'].PropTypes.func.isRequired
   },
   render: function render() {
-    var elements = this.props.elements;
+    var _props = this.props;
+    var select = _props.select;
+    var elements = _props.elements;
 
-    var listItems = elements.map(function (element) {
-      return _react2['default'].createElement(FilterGuideListElement, { label: element.label });
+    var listItems = elements.map(function (element, i) {
+      return _react2['default'].createElement(FilterGuideListElement, { select: select, key: i, label: element.label });
     });
     return _react2['default'].createElement(
       'ul',
@@ -67,14 +69,16 @@ var FilterGuideListElement = _react2['default'].createClass({
     label: _react2['default'].PropTypes.string.isRequired
   },
   render: function render() {
-    var label = this.props.label;
+    var _props2 = this.props;
+    var select = _props2.select;
+    var label = _props2.label;
 
     return _react2['default'].createElement(
       'li',
       { className: 'filterguide-list-element' },
       _react2['default'].createElement(
-        'span',
-        { className: 'element-label' },
+        'a',
+        { onClick: select.bind(null, this.props), href: '#', className: 'element-label' },
         label
       )
     );

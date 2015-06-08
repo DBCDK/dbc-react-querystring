@@ -7,14 +7,14 @@ import _ from 'lodash';
  */
 const FilterGuide = React.createClass({
   propTypes: {
-    elements: React.PropTypes.array.isRequired
+    elements: React.PropTypes.array.isRequired,
+    select: React.PropTypes.func.isRequired
   },
   render() {
-    const {elements} = this.props;
     return (
       <div className='filterguide-wrapper'>
         <div className='filterguide'>
-          <FilterGuideList elements={elements}/>
+          <FilterGuideList {...this.props}/>
         </div>
       </div>
     );
@@ -26,11 +26,12 @@ const FilterGuide = React.createClass({
  */
 const FilterGuideList = React.createClass({
   propTypes: {
-    elements: React.PropTypes.array.isRequired
+    elements: React.PropTypes.array.isRequired,
+    select: React.PropTypes.func.isRequired
   },
   render() {
-    const {elements} = this.props;
-    const listItems = elements.map((element) => (<FilterGuideListElement label={element.label}/>));
+    const {select, elements} = this.props;
+    const listItems = elements.map((element, i) => (<FilterGuideListElement select={select} key={i} label={element.label}/>));
     return (
       <ul className='filterguide-list'>
         {listItems}
@@ -44,10 +45,10 @@ const FilterGuideListElement = React.createClass({
     label: React.PropTypes.string.isRequired
   },
   render() {
-    const {label} = this.props;
+    const {select, label} = this.props;
     return (
       <li className='filterguide-list-element'>
-        <span className='element-label'>{label}</span>
+        <a onClick={select.bind(null, this.props)} href='#' className='element-label'>{label}</a>
       </li>
     );
   }
