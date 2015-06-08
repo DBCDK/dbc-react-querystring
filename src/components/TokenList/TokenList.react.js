@@ -48,10 +48,10 @@ export default React.createClass({
     const tokens = query.map((element)=> {
 
       return (<Token
-        key={element}
-        index={element}
+        key={element.index}
+        index={element.index}
         remove={remove.bind(null, element)}
-        text={element}
+        text={element.value}
         color={_getRandomColor()}
         />);
     }).reverse();

@@ -62,10 +62,10 @@ exports['default'] = _react2['default'].createClass({
     var tokens = query.map(function (element) {
 
       return _react2['default'].createElement(_TokenReact2['default'], {
-        key: element,
-        index: element,
+        key: element.index,
+        index: element.index,
         remove: remove.bind(null, element),
-        text: element,
+        text: element.value,
         color: _getRandomColor()
       });
     }).reverse();
