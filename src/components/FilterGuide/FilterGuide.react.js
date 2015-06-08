@@ -28,26 +28,27 @@ const FilterGuideList = React.createClass({
   },
   render() {
     const {elements} = this.props;
-    const listItems = elements.map((element) => (<FilterGuideListElement element={element}/>));
+    const listItems = elements.map((element) => (<FilterGuideListElement label={element.label}/>));
     return (
-      <div className='filterguide-list'>
+      <ul className='filterguide-list'>
         {listItems}
-      </div>
+      </ul>
     );
   }
 });
 
 const FilterGuideListElement = React.createClass({
-
+  propTypes: {
+    label: React.proptypes.string.isRequired
+  },
   render() {
-    const {element} = this.props;
+    const {label} = this.props;
     return (
-      <div className='filterguide-list-element'>
-        {element}
-      </div>
+      <li className='filterguide-list-element'>
+        <span className='label'>{label}</span>
+      </li>
     );
   }
 });
-
 
 export default FilterGuide;

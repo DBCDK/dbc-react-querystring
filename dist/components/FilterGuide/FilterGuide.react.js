@@ -46,10 +46,10 @@ var FilterGuideList = _react2['default'].createClass({
     var elements = this.props.elements;
 
     var listItems = elements.map(function (element) {
-      return _react2['default'].createElement(FilterGuideListElement, { element: element });
+      return _react2['default'].createElement(FilterGuideListElement, { label: element.label });
     });
     return _react2['default'].createElement(
-      'div',
+      'ul',
       { className: 'filterguide-list' },
       listItems
     );
@@ -59,13 +59,20 @@ var FilterGuideList = _react2['default'].createClass({
 var FilterGuideListElement = _react2['default'].createClass({
   displayName: 'FilterGuideListElement',
 
+  propTypes: {
+    label: _react2['default'].proptypes.string.isRequired
+  },
   render: function render() {
-    var element = this.props.element;
+    var label = this.props.label;
 
     return _react2['default'].createElement(
-      'div',
+      'li',
       { className: 'filterguide-list-element' },
-      element
+      _react2['default'].createElement(
+        'span',
+        { className: 'label' },
+        label
+      )
     );
   }
 });
