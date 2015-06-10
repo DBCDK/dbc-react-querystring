@@ -22,8 +22,10 @@ var _react2 = _interopRequireDefault(_react);
 
 describe('Test the SearchField component', function () {
   it('displays a string with a close button', function () {
+    var updateSpy = sinon.spy(); // eslint-disable-line block-scoped-var, no-undef
     var state = {
-      query: ['test1', 'test2']
+      query: [{ value: 'test1', index: 1 }, { value: 'test2', index: 2 }],
+      update: updateSpy
     };
 
     // Create TokenList Compontent
@@ -40,14 +42,11 @@ describe('Test the SearchField component', function () {
     var label = _reactLibReactTestUtils2['default'].findRenderedDOMComponentWithClass(Tokens[0], 'text').getDOMNode().textContent;
     (0, _chai.expect)(label).to.equal('test2');
     _reactLibReactTestUtils2['default'].Simulate.click(_reactLibReactTestUtils2['default'].findRenderedDOMComponentWithClass(Tokens[0], 'remove'));
-    (0, _chai.expect)(dom.state.query).to.have.length(1);
-    Tokens = _reactLibReactTestUtils2['default'].scryRenderedComponentsWithType(dom, _TokenListTokenReactJs2['default']);
-
-    // Test that one has been removed
-    (0, _chai.expect)(Tokens).to.have.length(1);
-
-    // Make sure the right button is removed
-    label = _reactLibReactTestUtils2['default'].findRenderedDOMComponentWithClass(dom, 'text').getDOMNode().textContent;
+    (0, _chai.assert)(updateSpy.calledWith([{ value: 'test1', index: 1 }]), 'called with remaining object');
+    // remove last button
+    label = _reactLibReactTestUtils2['default'].findRenderedDOMComponentWithClass(Tokens[1], 'text').getDOMNode().textContent;
     (0, _chai.expect)(label).to.equal('test1');
+    _reactLibReactTestUtils2['default'].Simulate.click(_reactLibReactTestUtils2['default'].findRenderedDOMComponentWithClass(Tokens[1], 'remove'));
+    (0, _chai.assert)(updateSpy.calledWith([{ value: 'test2', index: 2 }]), 'called with remaining object');
   });
 });

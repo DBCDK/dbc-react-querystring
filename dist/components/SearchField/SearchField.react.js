@@ -13,15 +13,18 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _TokenListTokenListReactJs = require('../TokenList/TokenList.react.js');
+var _TokenListTokenListReact = require('../TokenList/TokenList.react');
 
-var _TokenListTokenListReactJs2 = _interopRequireDefault(_TokenListTokenListReactJs);
+var _TokenListTokenListReact2 = _interopRequireDefault(_TokenListTokenListReact);
+
+var _utilsQueryStringUtil = require('../../utils/QueryString.util');
 
 /**
  * Main component for showing searchstring as buttons
  *
  * Properties:
  * query: an array of query elements. Only supports string elements for now.
+ * change optional callback function for when the input field is updated
  */
 var SearchField = _react2['default'].createClass({
   displayName: 'SearchField',
@@ -39,7 +42,7 @@ var SearchField = _react2['default'].createClass({
     var text = _state.text;
     var query = this.props.query;
 
-    var buttons = !hasFocus && _react2['default'].createElement(_TokenListTokenListReactJs2['default'], { query: query, remove: this._removeElement }) || null;
+    var buttons = !hasFocus && _react2['default'].createElement(_TokenListTokenListReact2['default'], { query: query, remove: this._removeElement }) || null;
     return _react2['default'].createElement(
       'div',
       null,
@@ -80,24 +83,34 @@ var SearchField = _react2['default'].createClass({
     );
   },
 
-  _removeElement: function _removeElement(text) {
-    var query = _lodash2['default'].remove(this.props.query, function (element) {
-      return element !== text;
+  _removeElement: function _removeElement(element) {
+    var query = _lodash2['default'].remove(this.props.query, function (queryObject) {
+      return queryObject !== element;
     });
     this.props.update(query);
   },
 
+  // Handle changes in the input field
   _onSubmit: function _onSubmit(event) {
+    // make sure form is not submitted, it is handled with js
+    // @todo implement fallback for when js is failing
     event.preventDefault();
-    var query = this.state.text && this.state.text.trim().split(' ') || this.props.query;
+    // update query with the updated text string
+    var text = this.state.text && this.state.text.trim() || '';
+    var query = (0, _utilsQueryStringUtil.updateQueryFromString)(text, this.props.query);
+    // let query = this.state.text && this.state.text.trim().split(' ') || this.props.query;
+    // Send updated query to parent component
     this.props.update(query);
+    // Update local state: remove focus and empty textfield
     this.setState({
       text: '',
       hasFocus: false
     });
   },
   _getQueryTexts: function _getQueryTexts() {
-    return this.props.query.join(' ');
+    return this.props.query.map(function (element) {
+      return element.value;
+    }).join(' ');
   },
   _setFocus: function _setFocus(state) {
     var text = state && this._getQueryTexts() || '';
