@@ -24,7 +24,7 @@ describe('Test the TokenList component', function () {
   it('displays a string with a close button', function () {
     var remove = sinon.spy(); // eslint-disable-line block-scoped-var, no-undef
     var state = {
-      query: ['test'],
+      query: [{ value: 'test', index: 1 }],
       remove: remove
     };
 
