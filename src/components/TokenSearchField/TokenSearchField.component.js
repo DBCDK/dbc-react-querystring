@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import _ from 'lodash';
-import TokenList from '../TokenList/TokenList.react';
+import TokenList from '../TokenList/TokenList.component.js';
 import {updateQueryFromString} from '../../utils/QueryString.util';
 
 /**

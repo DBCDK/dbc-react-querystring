@@ -1,8 +1,8 @@
 'use strict';
 import {expect} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
-import TokenList from '../TokenList.react.js';
-import Token from '../Token.react.js';
+import TokenList from '../TokenList.component.js';
+import Token from '../Token.component.js';
 import React from 'react';
 
 describe('Test the TokenList component', () => {

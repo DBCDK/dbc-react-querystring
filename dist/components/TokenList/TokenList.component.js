@@ -9,9 +9,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _TokenReact = require('./Token.react');
+var _TokenComponentJs = require('./Token.component.js');
 
-var _TokenReact2 = _interopRequireDefault(_TokenReact);
+var _TokenComponentJs2 = _interopRequireDefault(_TokenComponentJs);
 
 /**
  * Get a random color. This function is used for development only.
@@ -38,7 +38,7 @@ function _getRandomColor() {
  *
  */
 exports['default'] = _react2['default'].createClass({
-  displayName: 'TokenList.react',
+  displayName: 'TokenList.component',
 
   getInitialState: function getInitialState() {
     var queries = this.props.query.map(function (query) {
@@ -61,7 +61,7 @@ exports['default'] = _react2['default'].createClass({
     // In the CSS direction is set to rlt, reversing the order again
     var tokens = query.map(function (element) {
 
-      return _react2['default'].createElement(_TokenReact2['default'], {
+      return _react2['default'].createElement(_TokenComponentJs2['default'], {
         key: element.index,
         index: element.index,
         remove: remove.bind(null, element),

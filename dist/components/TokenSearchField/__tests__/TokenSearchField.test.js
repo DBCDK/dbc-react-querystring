@@ -8,13 +8,13 @@ var _reactLibReactTestUtils = require('react/lib/ReactTestUtils');
 
 var _reactLibReactTestUtils2 = _interopRequireDefault(_reactLibReactTestUtils);
 
-var _SearchFieldReact = require('../SearchField.react');
+var _TokenSearchFieldComponentJs = require('../TokenSearchField.component.js');
 
-var _SearchFieldReact2 = _interopRequireDefault(_SearchFieldReact);
+var _TokenSearchFieldComponentJs2 = _interopRequireDefault(_TokenSearchFieldComponentJs);
 
-var _TokenListTokenReactJs = require('../../TokenList/Token.react.js');
+var _TokenListTokenComponentJs = require('../../TokenList/Token.component.js');
 
-var _TokenListTokenReactJs2 = _interopRequireDefault(_TokenListTokenReactJs);
+var _TokenListTokenComponentJs2 = _interopRequireDefault(_TokenListTokenComponentJs);
 
 var _react = require('react');
 
@@ -29,13 +29,13 @@ describe('Test the SearchField component', function () {
     };
 
     // Create TokenList Compontent
-    var element = _react2['default'].createElement(_SearchFieldReact2['default'], state);
+    var element = _react2['default'].createElement(_TokenSearchFieldComponentJs2['default'], state);
     var dom = _reactLibReactTestUtils2['default'].renderIntoDocument(element);
     // Test state
     (0, _chai.expect)(dom.state.query).to.have.length(2);
 
     // Test tokens are created
-    var Tokens = _reactLibReactTestUtils2['default'].scryRenderedComponentsWithType(dom, _TokenListTokenReactJs2['default']);
+    var Tokens = _reactLibReactTestUtils2['default'].scryRenderedComponentsWithType(dom, _TokenListTokenComponentJs2['default']);
     (0, _chai.expect)(Tokens).to.have.length(2);
 
     // remove first button

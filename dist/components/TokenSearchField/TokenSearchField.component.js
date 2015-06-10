@@ -13,9 +13,9 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _TokenListTokenListReact = require('../TokenList/TokenList.react');
+var _TokenListTokenListComponentJs = require('../TokenList/TokenList.component.js');
 
-var _TokenListTokenListReact2 = _interopRequireDefault(_TokenListTokenListReact);
+var _TokenListTokenListComponentJs2 = _interopRequireDefault(_TokenListTokenListComponentJs);
 
 var _utilsQueryStringUtil = require('../../utils/QueryString.util');
 
@@ -42,7 +42,7 @@ var SearchField = _react2['default'].createClass({
     var text = _state.text;
     var query = this.props.query;
 
-    var buttons = !hasFocus && _react2['default'].createElement(_TokenListTokenListReact2['default'], { query: query, remove: this._removeElement }) || null;
+    var buttons = !hasFocus && _react2['default'].createElement(_TokenListTokenListComponentJs2['default'], { query: query, remove: this._removeElement }) || null;
     return _react2['default'].createElement(
       'div',
       null,

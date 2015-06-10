@@ -19,7 +19,7 @@ var _react2 = _interopRequireDefault(_react);
  * index: index of the element
  */
 exports['default'] = _react2['default'].createClass({
-  displayName: 'Token.react',
+  displayName: 'Token.component',
 
   render: function render() {
     var _props = this.props;

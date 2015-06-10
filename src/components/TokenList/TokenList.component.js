@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import Token from './Token.react';
+import Token from './Token.component.js';
 
 /**
  * Get a random color. This function is used for development only.

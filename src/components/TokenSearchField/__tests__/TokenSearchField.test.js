@@ -1,8 +1,8 @@
 'use strict';
 import {expect, assert} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
-import SearchField from '../SearchField.react';
-import Token from '../../TokenList/Token.react.js';
+import SearchField from '../TokenSearchField.component.js';
+import Token from '../../TokenList/Token.component.js';
 import React from 'react';
 
 describe('Test the SearchField component', () => {

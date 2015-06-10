@@ -1,5 +1,5 @@
 'use strict';
-import SearchField from './components/SearchField/SearchField.react';
+import TokenSearchField from './components/TokenSearchField/TokenSearchField.component.js';
 import FilterGuide from './components/FilterGuide/FilterGuide.component';
 
-export {SearchField, FilterGuide};
+export {TokenSearchField, FilterGuide};
