@@ -9,9 +9,9 @@ var _componentsSearchFieldSearchFieldReact = require('./components/SearchField/S
 
 var _componentsSearchFieldSearchFieldReact2 = _interopRequireDefault(_componentsSearchFieldSearchFieldReact);
 
-var _componentsFilterGuideFilterGuideReact = require('./components/FilterGuide/FilterGuide.react');
+var _componentsFilterGuideFilterGuideComponent = require('./components/FilterGuide/FilterGuide.component');
 
-var _componentsFilterGuideFilterGuideReact2 = _interopRequireDefault(_componentsFilterGuideFilterGuideReact);
+var _componentsFilterGuideFilterGuideComponent2 = _interopRequireDefault(_componentsFilterGuideFilterGuideComponent);
 
 exports.SearchField = _componentsSearchFieldSearchFieldReact2['default'];
-exports.FilterGuide = _componentsFilterGuideFilterGuideReact2['default'];
+exports.FilterGuide = _componentsFilterGuideFilterGuideComponent2['default'];

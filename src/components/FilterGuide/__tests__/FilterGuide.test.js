@@ -1,7 +1,8 @@
 'use strict';
 import {expect} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
-import {FilterGuide, FilterGuideListElement} from '../FilterGuide.react.js';
+import FilterGuide from '../FilterGuide.component.js';
+import FilterGuideListElement from '../FilterGuideListElement.component.js';
 import React from 'react';
 
 describe('Test the FilterGuide component', () => {

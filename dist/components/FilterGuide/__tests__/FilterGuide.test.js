@@ -8,7 +8,13 @@ var _reactLibReactTestUtils = require('react/lib/ReactTestUtils');
 
 var _reactLibReactTestUtils2 = _interopRequireDefault(_reactLibReactTestUtils);
 
-var _FilterGuideReactJs = require('../FilterGuide.react.js');
+var _FilterGuideComponentJs = require('../FilterGuide.component.js');
+
+var _FilterGuideComponentJs2 = _interopRequireDefault(_FilterGuideComponentJs);
+
+var _FilterGuideListElementComponentJs = require('../FilterGuideListElement.component.js');
+
+var _FilterGuideListElementComponentJs2 = _interopRequireDefault(_FilterGuideListElementComponentJs);
 
 var _react = require('react');
 
@@ -23,9 +29,9 @@ describe('Test the FilterGuide component', function () {
       select: select
     };
 
-    var element = _react2['default'].createElement(_FilterGuideReactJs.FilterGuide, props);
+    var element = _react2['default'].createElement(_FilterGuideComponentJs2['default'], props);
     var dom = _reactLibReactTestUtils2['default'].renderIntoDocument(element);
-    var filterelements = _reactLibReactTestUtils2['default'].scryRenderedComponentsWithType(dom, _FilterGuideReactJs.FilterGuideListElement);
+    var filterelements = _reactLibReactTestUtils2['default'].scryRenderedComponentsWithType(dom, _FilterGuideListElementComponentJs2['default']);
     (0, _chai.expect)(filterelements).to.have.length(2);
 
     // Test first element has label
