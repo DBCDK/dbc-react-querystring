@@ -22,7 +22,7 @@ export default React.createClass({
     return (
       <div className='token' style={style}>
         <span className="text">{text}</span>
-        <span className="remove" onClick={remove.bind(null, index)}>x</span>
+        <span className="remove" onClick={remove}>x</span>
       </div>
     );
   }

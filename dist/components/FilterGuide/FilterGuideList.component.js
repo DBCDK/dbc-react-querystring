@@ -23,6 +23,7 @@ var FilterGuideList = _react2['default'].createClass({
     elements: _react2['default'].PropTypes.array.isRequired,
     select: _react2['default'].PropTypes.func.isRequired
   },
+
   render: function render() {
     var _props = this.props;
     var select = _props.select;
@@ -31,6 +32,7 @@ var FilterGuideList = _react2['default'].createClass({
     var listItems = elements.map(function (element, i) {
       return _react2['default'].createElement(_FilterGuideListElementComponentJs2['default'], { select: select, key: i, element: element });
     });
+
     return _react2['default'].createElement(
       'ul',
       { className: 'filterguide-list' },

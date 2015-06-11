@@ -43,7 +43,7 @@ exports['default'] = _react2['default'].createClass({
       ),
       _react2['default'].createElement(
         'span',
-        { className: 'remove', onClick: remove.bind(null, index) },
+        { className: 'remove', onClick: remove },
         'x'
       )
     );

@@ -12,50 +12,27 @@ import {updateQueryFromString} from '../../utils/QueryString.util';
  * change optional callback function for when the input field is updated
  */
 const SearchField = React.createClass({
+  propTypes() {
+    return {
+      query: React.PropTypes.array.required,
+      update: React.PropTypes.func.required,
+      change: React.PropTypes.func
+    };
+  },
+
   getInitialState() {
     return {
-      query: this.props.query || [],
       value: '',
       hasFocus: false
     };
   },
-  render() {
-    const {hasFocus, text} = this.state;
-    const {query} = this.props;
-    const buttons = !hasFocus && (<TokenList query={query} remove={this._removeElement}/>) || null;
-    return (
-      <div>
-        <form onSubmit={this._onSubmit}>
-          <ul className='searchfield-wrapper'>
-            <li className='tokens'>
-              <div className='tokens-wrapper'>{buttons}</div>
-            </li>
-            <li className='inputfield'>
-              <input type='text'
-                     className='searchfield'
-                     onChange={this._onKeyDown}
-                     onFocus={this._setFocus.bind(this, true)}
-                     onBlur={this._setFocus.bind(this, false)}
-                     onClick={this._setFocus.bind(this, true)}
-                     value={text}
-                />
-            </li>
-            <li className='submit'>
-              <input className='button small' type='submit' value='søg'/>
-            </li>
-          </ul>
-        </form>
-      </div>
-    );
-  },
 
-  _removeElement(element) {
+  removeElement(element) {
     let query = _.remove(this.props.query, (queryObject)=> queryObject !== element);
     this.props.update(query);
   },
 
-  // Handle changes in the input field
-  _onSubmit(event) {
+  onSubmit(event) {
     // make sure form is not submitted, it is handled with js
     // @todo implement fallback for when js is failing
     event.preventDefault();
@@ -71,25 +48,56 @@ const SearchField = React.createClass({
       hasFocus: false
     });
   },
-  _getQueryTexts() {
+
+  getQueryTexts() {
     return this.props.query.map((element)=> element.value).join(' ');
   },
-  _setFocus(state) {
-    let text = state && this._getQueryTexts() || '';
+
+  setFocus(state) {
+    let text = state && this.getQueryTexts() || '';
     this.setState({hasFocus: state, text: text});
+    this.props.update(this.props.query);
   },
-  _onKeyDown(event) {
+
+  onKeyDown(event) {
     let text = event.target.value;
     if (!this.state.hasFocus) {
-      text = this._getQueryTexts() + ' ' + text;
+      text = this.getQueryTexts() + ' ' + text;
     }
     this.setState({text: text, hasFocus: true});
-  },
-  _onChange: function (event) {
-    this.setState({text: event.target.value});
     if (this.props.change) {
       this.props.change(event.target.value);
     }
+  },
+
+  render() {
+    const {hasFocus, text} = this.state;
+    const {query} = this.props;
+    const buttons = !hasFocus && (<TokenList query={query} remove={this.removeElement}/>) || null;
+    return (
+      <div className='token-searchfield'>
+        <form onSubmit={this.onSubmit}>
+          <ul className='searchfield-wrapper'>
+            <li className='tokens'>
+              <div className='tokens-wrapper'>{buttons}</div>
+            </li>
+            <li className='inputfield'>
+              <input type='text'
+                     className='searchfield'
+                     onChange={this.onKeyDown}
+                     onFocus={this.setFocus.bind(this, true)}
+                     onBlur={this.setFocus.bind(this, false)}
+                     onClick={this.setFocus.bind(this, true)}
+                     value={text}
+                />
+            </li>
+            <li className='submit'>
+              <input className='button small' type='submit' value='søg'/>
+            </li>
+          </ul>
+        </form>
+      </div>
+    );
   }
 });
 
