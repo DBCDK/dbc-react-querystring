@@ -52,7 +52,7 @@ let elements = [
     remove={callback} 
     change={callback /*optional callback that can be used fx. by an autocomplete component*/}
   />
-``
+```
 
 ## how to install
 `npm install`
