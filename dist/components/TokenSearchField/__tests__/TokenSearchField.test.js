@@ -31,9 +31,9 @@ describe('Test the SearchField component', function () {
     // Create TokenList Compontent
     var element = _react2['default'].createElement(_TokenSearchFieldComponentJs2['default'], state);
     var dom = _reactLibReactTestUtils2['default'].renderIntoDocument(element);
+    var searchField = _reactLibReactTestUtils2['default'].findRenderedComponentWithType(dom, _TokenSearchFieldComponentJs2['default']);
     // Test state
-    (0, _chai.expect)(dom.state.query).to.have.length(2);
-
+    (0, _chai.expect)(searchField.props.query).to.have.length(2);
     // Test tokens are created
     var Tokens = _reactLibReactTestUtils2['default'].scryRenderedComponentsWithType(dom, _TokenListTokenComponentJs2['default']);
     (0, _chai.expect)(Tokens).to.have.length(2);

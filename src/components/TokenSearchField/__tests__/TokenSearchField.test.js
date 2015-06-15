@@ -16,9 +16,9 @@ describe('Test the SearchField component', () => {
     // Create TokenList Compontent
     let element = React.createElement(SearchField, state);
     let dom = TestUtils.renderIntoDocument(element);
+    let searchField = TestUtils.findRenderedComponentWithType(dom, SearchField);
     // Test state
-    expect(dom.state.query).to.have.length(2);
-
+    expect(searchField.props.query).to.have.length(2);
     // Test tokens are created
     let Tokens = TestUtils.scryRenderedComponentsWithType(dom, Token);
     expect(Tokens).to.have.length(2);
