@@ -19,6 +19,7 @@ var _lodash2 = _interopRequireDefault(_lodash);
  */
 function addElementsFromString(stringElements) {
   var newElementValues = stringElements.split(' ');
+
   return newElementValues.map(function (value) {
     return {
       value: value,
@@ -37,6 +38,7 @@ function addElementsFromString(stringElements) {
 function indexOfPhraseInString(string, phrase) {
   var req = new RegExp('(^|[^\\w])' + phrase + '($|[^\\w])', 'g');
   var match = req.exec(string);
+
   return match && string.indexOf(phrase);
 }
 
@@ -90,5 +92,6 @@ function updateQueryFromString(string, query) {
     var newElements = addElementsFromString(state.string);
     state.query.push(newElements);
   }
+
   return _lodash2['default'].flatten(state.query);
 }

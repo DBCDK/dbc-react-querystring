@@ -10,6 +10,7 @@ import _ from 'lodash';
  */
 function addElementsFromString(stringElements) {
   const newElementValues = stringElements.split(' ');
+
   return newElementValues.map((value) => {
     return {
       value,
@@ -28,6 +29,7 @@ function addElementsFromString(stringElements) {
 function indexOfPhraseInString(string, phrase) {
   let req = new RegExp('(^|[^\\w])' + phrase + '($|[^\\w])', 'g');
   let match = req.exec(string);
+
   return match && string.indexOf(phrase);
 }
 
@@ -78,5 +80,6 @@ export function updateQueryFromString(string, query) {
     let newElements = addElementsFromString(state.string);
     state.query.push(newElements);
   }
+
   return _.flatten(state.query);
 }
