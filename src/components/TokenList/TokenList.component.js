@@ -1,6 +1,7 @@
 'use strict';
-import React from 'react';
-import Token from './Token.react';
+
+import React, {PropTypes} from 'react';
+import Token from './Token.component.js';
 
 /**
  * Get a random color. This function is used for development only.
@@ -21,12 +22,18 @@ function _getRandomColor() {
 /**
  * Creates a list of tokens
  *
+ * This component is only used internally for the TokenSearchField
+ *
  * Properties:
  * query: array of strings
  * remove: callback function for removing elements with a certain index
  *
  */
 export default React.createClass({
+  propTypes: {
+    query: PropTypes.array.isRequired,
+    remove: PropTypes.func.isRequired
+  },
 
   getInitialState() {
     let queries = this.props.query.map((query)=> {
@@ -48,10 +55,10 @@ export default React.createClass({
     const tokens = query.map((element)=> {
 
       return (<Token
-        key={element}
-        index={element}
+        key={element.index}
+        index={element.index}
         remove={remove.bind(null, element)}
-        text={element}
+        text={element.value}
         color={_getRandomColor()}
         />);
     }).reverse();

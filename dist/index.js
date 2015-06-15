@@ -3,10 +3,15 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+var _componentsTokenSearchFieldTokenSearchFieldComponentJs = require('./components/TokenSearchField/TokenSearchField.component.js');
 
-var _componentsSearchFieldSearchFieldReactJs = require('./components/SearchField/SearchField.react.js');
+var _componentsTokenSearchFieldTokenSearchFieldComponentJs2 = _interopRequireDefault(_componentsTokenSearchFieldTokenSearchFieldComponentJs);
 
-_defaults(exports, _interopRequireWildcard(_componentsSearchFieldSearchFieldReactJs));
+var _componentsFilterGuideFilterGuideComponent = require('./components/FilterGuide/FilterGuide.component');
+
+var _componentsFilterGuideFilterGuideComponent2 = _interopRequireDefault(_componentsFilterGuideFilterGuideComponent);
+
+exports.TokenSearchField = _componentsTokenSearchFieldTokenSearchFieldComponentJs2['default'];
+exports.FilterGuide = _componentsFilterGuideFilterGuideComponent2['default'];

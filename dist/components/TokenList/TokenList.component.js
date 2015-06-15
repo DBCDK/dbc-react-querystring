@@ -1,4 +1,5 @@
 'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
@@ -9,9 +10,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _TokenReact = require('./Token.react');
+var _TokenComponentJs = require('./Token.component.js');
 
-var _TokenReact2 = _interopRequireDefault(_TokenReact);
+var _TokenComponentJs2 = _interopRequireDefault(_TokenComponentJs);
 
 /**
  * Get a random color. This function is used for development only.
@@ -32,13 +33,20 @@ function _getRandomColor() {
 /**
  * Creates a list of tokens
  *
+ * This component is only used internally for the TokenSearchField
+ *
  * Properties:
  * query: array of strings
  * remove: callback function for removing elements with a certain index
  *
  */
 exports['default'] = _react2['default'].createClass({
-  displayName: 'TokenList.react',
+  displayName: 'TokenList.component',
+
+  propTypes: {
+    query: _react.PropTypes.array.isRequired,
+    remove: _react.PropTypes.func.isRequired
+  },
 
   getInitialState: function getInitialState() {
     var queries = this.props.query.map(function (query) {
@@ -61,11 +69,11 @@ exports['default'] = _react2['default'].createClass({
     // In the CSS direction is set to rlt, reversing the order again
     var tokens = query.map(function (element) {
 
-      return _react2['default'].createElement(_TokenReact2['default'], {
-        key: element,
-        index: element,
+      return _react2['default'].createElement(_TokenComponentJs2['default'], {
+        key: element.index,
+        index: element.index,
         remove: remove.bind(null, element),
-        text: element,
+        text: element.value,
         color: _getRandomColor()
       });
     }).reverse();

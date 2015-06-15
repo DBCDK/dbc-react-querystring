@@ -1,7 +1,51 @@
 # dbc-react-querystring
-module for generating a cql querystring  and creating a visual presentation
 
-When a word is added to the input field it is converted to a button with a remove field
+## FilterGuide
+
+### API
+The FilterGuide component shows a list of words that can be added to a query. 
+
+The component takes an array of elements and a callback function as properties
+
+
+```
+// elements is an array of query objects with a value and type as minimum
+let elements = [
+    {
+      value: 'harry',
+      type: 'text'
+    },
+    {
+      value: 'potter',
+      type: 'text'
+    },
+  ];
+  
+  // The select callback is called when a user clicks on a filter element
+  <FilterGuide elements={elements} select={callback} />
+```
+
+## TokenSearchField
+The TokenSearchField component converts the query to a row of buttons, that can be removed by the user
+
+### API
+
+```
+// elements is an array of query objects with a value and type as minimum
+let elements = [
+    {
+      value: 'harry',
+      type: 'text'
+    },
+    {
+      value: 'potter',
+      type: 'text'
+    },
+  ];
+  
+  // The remove callback is called when a user clicks on a filter element
+  <TokenSearchField query={elements} remove={callback} />
+```
 
 ## how to install
 `npm install`

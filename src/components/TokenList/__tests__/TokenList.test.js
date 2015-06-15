@@ -1,15 +1,15 @@
 'use strict';
 import {expect} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
-import TokenList from '../TokenList.react.js';
-import Token from '../Token.react.js';
+import TokenList from '../TokenList.component.js';
+import Token from '../Token.component.js';
 import React from 'react';
 
 describe('Test the TokenList component', () => {
   it('displays a string with a close button', ()=> {
     var remove = sinon.spy();  // eslint-disable-line block-scoped-var, no-undef
     let state = {
-      query: ['test'],
+      query: [{value: 'test', index: 1}],
       remove: remove
     };
 

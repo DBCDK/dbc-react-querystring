@@ -12,6 +12,8 @@ var _react2 = _interopRequireDefault(_react);
 /**
  * Token component displayed as a removable button in an inputfield
  *
+ * This component is only used internally for the TokenList
+ *
  * Properties:
  * color: the color of the token, supports any kind of CSS color
  * text: the string to be displayed on the button
@@ -19,14 +21,19 @@ var _react2 = _interopRequireDefault(_react);
  * index: index of the element
  */
 exports['default'] = _react2['default'].createClass({
-  displayName: 'Token.react',
+  displayName: 'Token.component',
 
+  propTypes: {
+    color: _react.PropTypes.string.isRequired,
+    text: _react.PropTypes.string.isRequired,
+    remove: _react.PropTypes.func.isRequired,
+    index: _react.PropTypes.string
+  },
   render: function render() {
     var _props = this.props;
     var color = _props.color;
     var text = _props.text;
     var remove = _props.remove;
-    var index = _props.index;
 
     // Background color is dynamic and therefore set inline
     var style = {
@@ -43,7 +50,7 @@ exports['default'] = _react2['default'].createClass({
       ),
       _react2['default'].createElement(
         'span',
-        { className: 'remove', onClick: remove.bind(null, index) },
+        { className: 'remove', onClick: remove },
         'x'
       )
     );

@@ -1,8 +1,10 @@
 'use strict';
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 /**
  * Token component displayed as a removable button in an inputfield
+ *
+ * This component is only used internally for the TokenList
  *
  * Properties:
  * color: the color of the token, supports any kind of CSS color
@@ -11,8 +13,14 @@ import React from 'react';
  * index: index of the element
  */
 export default React.createClass({
+  propTypes: {
+    color: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    remove: PropTypes.func.isRequired,
+    index: PropTypes.string
+  },
   render() {
-    let {color, text, remove, index} = this.props;
+    let {color, text, remove} = this.props;
 
     // Background color is dynamic and therefore set inline
     let style = {
@@ -22,7 +30,7 @@ export default React.createClass({
     return (
       <div className='token' style={style}>
         <span className="text">{text}</span>
-        <span className="remove" onClick={remove.bind(null, index)}>x</span>
+        <span className="remove" onClick={remove}>x</span>
       </div>
     );
   }
