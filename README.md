@@ -23,7 +23,7 @@ let elements = [
   
   // The select callback is called when a user clicks on a filter element
   <FilterGuide elements={elements} select={callback} />
-``
+```
 
 ## TokenSearchField
 The TokenSearchField component converts the query to a row of buttons, that can be removed by the user
@@ -45,7 +45,7 @@ let elements = [
   
   // The remove callback is called when a user clicks on a filter element
   <TokenSearchField query={elements} remove={callback} />
-``
+```
 
 ## how to install
 `npm install`
