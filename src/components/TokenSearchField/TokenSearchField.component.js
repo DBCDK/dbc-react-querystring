@@ -1,5 +1,5 @@
 'use strict';
-import React from 'react';
+import React, {PropTypes} from 'react';
 import _ from 'lodash';
 import TokenList from '../TokenList/TokenList.component.js';
 import {updateQueryFromString} from '../../utils/QueryString.util';
@@ -12,12 +12,10 @@ import {updateQueryFromString} from '../../utils/QueryString.util';
  * change optional callback function for when the input field is updated
  */
 const SearchField = React.createClass({
-  propTypes() {
-    return {
-      query: React.PropTypes.array.required,
-      update: React.PropTypes.func.required,
-      change: React.PropTypes.func
-    };
+  propTypes: {
+      query: PropTypes.array.isRequired,
+      update: PropTypes.func.isRequired,
+      change: PropTypes.func
   },
 
   getInitialState() {

@@ -1,4 +1,5 @@
 'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
@@ -32,6 +33,8 @@ function _getRandomColor() {
 /**
  * Creates a list of tokens
  *
+ * This component is only used internally for the TokenSearchField
+ *
  * Properties:
  * query: array of strings
  * remove: callback function for removing elements with a certain index
@@ -39,6 +42,11 @@ function _getRandomColor() {
  */
 exports['default'] = _react2['default'].createClass({
   displayName: 'TokenList.component',
+
+  propTypes: {
+    query: _react.PropTypes.array.isRequired,
+    remove: _react.PropTypes.func.isRequired
+  },
 
   getInitialState: function getInitialState() {
     var queries = this.props.query.map(function (query) {

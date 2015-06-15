@@ -29,12 +29,10 @@ var _utilsQueryStringUtil = require('../../utils/QueryString.util');
 var SearchField = _react2['default'].createClass({
   displayName: 'SearchField',
 
-  propTypes: function propTypes() {
-    return {
-      query: _react2['default'].PropTypes.array.required,
-      update: _react2['default'].PropTypes.func.required,
-      change: _react2['default'].PropTypes.func
-    };
+  propTypes: {
+    query: _react.PropTypes.array.isRequired,
+    update: _react.PropTypes.func.isRequired,
+    change: _react.PropTypes.func
   },
 
   getInitialState: function getInitialState() {
