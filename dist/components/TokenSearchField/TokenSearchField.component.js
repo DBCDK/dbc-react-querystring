@@ -75,7 +75,7 @@ var SearchField = _react2['default'].createClass({
   setFocus: function setFocus(state) {
     var text = state && this.getQueryTexts() || '';
     this.setState({ hasFocus: state, text: text });
-    this.props.update(this.props.query);
+    //this.props.update(this.props.query);
   },
 
   onKeyDown: function onKeyDown(event) {
@@ -95,7 +95,7 @@ var SearchField = _react2['default'].createClass({
     var text = _state.text;
     var query = this.props.query;
 
-    var buttons = !hasFocus && _react2['default'].createElement(_TokenListTokenListComponentJs2['default'], { query: query, remove: this.removeElement }) || null;
+    var tokenClasses = !hasFocus && 'tokens-wrapper' || 'tokens-wrapper hide';
     return _react2['default'].createElement(
       'div',
       { className: 'token-searchfield' },
@@ -110,8 +110,8 @@ var SearchField = _react2['default'].createClass({
             { className: 'tokens' },
             _react2['default'].createElement(
               'div',
-              { className: 'tokens-wrapper' },
-              buttons
+              { className: tokenClasses },
+              _react2['default'].createElement(_TokenListTokenListComponentJs2['default'], { query: query, remove: this.removeElement })
             )
           ),
           _react2['default'].createElement(

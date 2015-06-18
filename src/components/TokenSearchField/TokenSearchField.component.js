@@ -54,7 +54,7 @@ const SearchField = React.createClass({
   setFocus(state) {
     let text = state && this.getQueryTexts() || '';
     this.setState({hasFocus: state, text: text});
-    this.props.update(this.props.query);
+    //this.props.update(this.props.query);
   },
 
   onKeyDown(event) {
@@ -71,13 +71,15 @@ const SearchField = React.createClass({
   render() {
     const {hasFocus, text} = this.state;
     const {query} = this.props;
-    const buttons = !hasFocus && (<TokenList query={query} remove={this.removeElement}/>) || null;
+    const tokenClasses = !hasFocus && 'tokens-wrapper' || 'tokens-wrapper hide';
     return (
       <div className='token-searchfield'>
         <form onSubmit={this.onSubmit}>
           <ul className='searchfield-wrapper'>
             <li className='tokens'>
-              <div className='tokens-wrapper'>{buttons}</div>
+              <div className={tokenClasses}>
+                <TokenList query={query} remove={this.removeElement}/>
+              </div>
             </li>
             <li className='inputfield'>
               <input type='text'
