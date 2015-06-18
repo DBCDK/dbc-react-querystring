@@ -31,6 +31,21 @@ function _getRandomColor() {
 }
 
 /**
+ * Return a color depending on the type
+ *
+ * @param type
+ * @returns {*}
+ */
+function getColor(type) {
+  switch (type) {
+    case 'text':
+      return '#222';
+    default:
+      return '#61b6d9';
+  }
+}
+
+/**
  * Creates a list of tokens
  *
  * This component is only used internally for the TokenSearchField
@@ -74,7 +89,7 @@ exports['default'] = _react2['default'].createClass({
         index: element.index,
         remove: remove.bind(null, element),
         text: element.value,
-        color: _getRandomColor()
+        color: getColor(element.type)
       });
     }).reverse();
 

@@ -30,7 +30,7 @@ var FilterGuideListElement = _react2['default'].createClass({
       { className: 'filterguide-list-element' },
       _react2['default'].createElement(
         'a',
-        { onClick: select.bind(null, this.props.element), href: '#', className: 'element-label' },
+        { onClick: select.bind(null, this.props.element), href: '#', className: 'element-label button' },
         element.value
       )
     );
