@@ -13,9 +13,9 @@ import {updateQueryFromString} from '../../utils/QueryString.util';
  */
 const SearchField = React.createClass({
   propTypes: {
-      query: PropTypes.array.isRequired,
-      update: PropTypes.func.isRequired,
-      change: PropTypes.func
+    query: PropTypes.array.isRequired,
+    update: PropTypes.func.isRequired,
+    change: PropTypes.func
   },
 
   getInitialState() {
@@ -73,15 +73,15 @@ const SearchField = React.createClass({
     const {query} = this.props;
     const tokenClasses = !hasFocus && 'tokens-wrapper' || 'tokens-wrapper hide';
     return (
-      <div className='token-searchfield'>
-        <form onSubmit={this.onSubmit}>
-          <ul className='searchfield-wrapper'>
-            <li className='tokens'>
-              <div className={tokenClasses}>
-                <TokenList query={query} remove={this.removeElement}/>
+      <div className='token-searchfield' >
+        <form onSubmit={this.onSubmit} >
+          <ul className='searchfield-wrapper' >
+            <li className='tokens' >
+              <div className={tokenClasses} >
+                <TokenList query={query} remove={this.removeElement} />
               </div>
             </li>
-            <li className='inputfield'>
+            <li className='inputfield' >
               <input type='text'
                      className='searchfield'
                      onChange={this.onKeyDown}
@@ -91,8 +91,8 @@ const SearchField = React.createClass({
                      value={text}
                 />
             </li>
-            <li className='submit'>
-              <input className='button small' type='submit' value='søg'/>
+            <li className='submit' >
+              <input className='button small' type='submit' value='søg' />
             </li>
           </ul>
         </form>
