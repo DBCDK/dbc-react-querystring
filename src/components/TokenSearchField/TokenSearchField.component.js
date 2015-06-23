@@ -57,7 +57,8 @@ const SearchField = React.createClass({
     //this.props.update(this.props.query);
   },
 
-  onKeyDown(event) {
+  onChange(event) {
+    console.log('øonChange');
     let text = event.target.value;
     if (!this.state.hasFocus) {
       text = this.getQueryTexts() + ' ' + text;
@@ -84,7 +85,7 @@ const SearchField = React.createClass({
             <li className='inputfield' >
               <input type='text'
                      className='searchfield'
-                     onChange={this.onKeyDown}
+                     onChange={this.onChange}
                      onFocus={this.setFocus.bind(this, true)}
                      onBlur={this.setFocus.bind(this, false)}
                      onClick={this.setFocus.bind(this, true)}
