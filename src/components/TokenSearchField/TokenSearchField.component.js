@@ -58,7 +58,6 @@ const SearchField = React.createClass({
   },
 
   onChange(event) {
-    console.log('øonChange');
     let text = event.target.value;
     if (!this.state.hasFocus) {
       text = this.getQueryTexts() + ' ' + text;
