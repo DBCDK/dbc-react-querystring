@@ -19,6 +19,7 @@ export default React.createClass({
     remove: PropTypes.func.isRequired,
     index: PropTypes.string
   },
+
   render() {
     let {color, text, remove} = this.props;
 

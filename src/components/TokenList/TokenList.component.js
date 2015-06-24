@@ -69,17 +69,19 @@ export default React.createClass({
     // In the CSS direction is set to rlt, reversing the order again
     const tokens = query.map((element)=> {
 
-      return (<Token
-        key={element.index}
-        index={element.index}
-        remove={remove.bind(null, element)}
-        text={element.value}
-        color={getColor(element.type)}
-        />);
+      return (
+        <Token
+          key={element.index}
+          index={element.index}
+          remove={remove.bind(null, element)}
+          text={element.value}
+          color={getColor(element.type)}
+          />
+      );
     }).reverse();
 
     return (
-      <div className='tokenlist'>
+      <div className='tokenlist' >
         {tokens}
       </div>
     );

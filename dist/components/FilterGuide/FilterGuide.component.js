@@ -24,6 +24,7 @@ var FilterGuide = _react2['default'].createClass({
     elements: _react2['default'].PropTypes.array.isRequired,
     select: _react2['default'].PropTypes.func.isRequired
   },
+
   render: function render() {
     return _react2['default'].createElement(
       'div',

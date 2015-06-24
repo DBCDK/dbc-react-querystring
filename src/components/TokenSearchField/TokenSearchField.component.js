@@ -13,9 +13,9 @@ import {updateQueryFromString} from '../../utils/QueryString.util';
  */
 const SearchField = React.createClass({
   propTypes: {
-      query: PropTypes.array.isRequired,
-      update: PropTypes.func.isRequired,
-      change: PropTypes.func
+    query: PropTypes.array.isRequired,
+    update: PropTypes.func.isRequired,
+    change: PropTypes.func
   },
 
   getInitialState() {
@@ -57,7 +57,7 @@ const SearchField = React.createClass({
     //this.props.update(this.props.query);
   },
 
-  onKeyDown(event) {
+  onChange(event) {
     let text = event.target.value;
     if (!this.state.hasFocus) {
       text = this.getQueryTexts() + ' ' + text;
@@ -73,26 +73,26 @@ const SearchField = React.createClass({
     const {query} = this.props;
     const tokenClasses = !hasFocus && 'tokens-wrapper' || 'tokens-wrapper hide';
     return (
-      <div className='token-searchfield'>
-        <form onSubmit={this.onSubmit}>
-          <ul className='searchfield-wrapper'>
-            <li className='tokens'>
-              <div className={tokenClasses}>
-                <TokenList query={query} remove={this.removeElement}/>
+      <div className='token-searchfield' >
+        <form onSubmit={this.onSubmit} >
+          <ul className='searchfield-wrapper' >
+            <li className='tokens' >
+              <div className={tokenClasses} >
+                <TokenList query={query} remove={this.removeElement} />
               </div>
             </li>
-            <li className='inputfield'>
+            <li className='inputfield' >
               <input type='text'
                      className='searchfield'
-                     onChange={this.onKeyDown}
+                     onChange={this.onChange}
                      onFocus={this.setFocus.bind(this, true)}
                      onBlur={this.setFocus.bind(this, false)}
                      onClick={this.setFocus.bind(this, true)}
                      value={text}
                 />
             </li>
-            <li className='submit'>
-              <input className='button small' type='submit' value='søg'/>
+            <li className='submit' >
+              <input className='button small' type='submit' value='søg' />
             </li>
           </ul>
         </form>
