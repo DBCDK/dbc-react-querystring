@@ -78,7 +78,7 @@ var SearchField = _react2['default'].createClass({
     //this.props.update(this.props.query);
   },
 
-  onKeyDown: function onKeyDown(event) {
+  onChange: function onChange(event) {
     var text = event.target.value;
     if (!this.state.hasFocus) {
       text = this.getQueryTexts() + ' ' + text;
@@ -119,7 +119,7 @@ var SearchField = _react2['default'].createClass({
             { className: 'inputfield' },
             _react2['default'].createElement('input', { type: 'text',
               className: 'searchfield',
-              onChange: this.onKeyDown,
+              onChange: this.onChange,
               onFocus: this.setFocus.bind(this, true),
               onBlur: this.setFocus.bind(this, false),
               onClick: this.setFocus.bind(this, true),
