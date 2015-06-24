@@ -10,11 +10,17 @@ const FilterGuideListElement = React.createClass({
     element: React.PropTypes.object.isRequired,
     select: React.PropTypes.func.isRequired
   },
+
+  onClick(element, event) {
+    event.preventDefault();
+    this.props.select(element);
+  },
+
   render() {
-    const {select, element} = this.props;
+    const {element} = this.props;
     return (
       <li className='filterguide-list-element'>
-        <a onClick={select.bind(null, this.props.element)} href='#' className='element-label button'>{element.value}</a>
+        <a onClick={this.onClick.bind(null, element)} href='#' className='element-label button'>{element.value}</a>
       </li>
     );
   }

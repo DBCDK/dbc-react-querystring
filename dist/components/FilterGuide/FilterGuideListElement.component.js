@@ -20,17 +20,21 @@ var FilterGuideListElement = _react2['default'].createClass({
     element: _react2['default'].PropTypes.object.isRequired,
     select: _react2['default'].PropTypes.func.isRequired
   },
+
+  onClick: function onClick(element, event) {
+    event.preventDefault();
+    this.props.select(element);
+  },
+
   render: function render() {
-    var _props = this.props;
-    var select = _props.select;
-    var element = _props.element;
+    var element = this.props.element;
 
     return _react2['default'].createElement(
       'li',
       { className: 'filterguide-list-element' },
       _react2['default'].createElement(
         'a',
-        { onClick: select.bind(null, this.props.element), href: '#', className: 'element-label button' },
+        { onClick: this.onClick.bind(null, element), href: '#', className: 'element-label button' },
         element.value
       )
     );
