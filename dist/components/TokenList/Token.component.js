@@ -29,6 +29,7 @@ exports['default'] = _react2['default'].createClass({
     remove: _react.PropTypes.func.isRequired,
     index: _react.PropTypes.string
   },
+
   render: function render() {
     var _props = this.props;
     var color = _props.color;
