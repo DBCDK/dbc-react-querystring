@@ -1,4 +1,10 @@
 'use strict';
+
+/**
+ * @file
+ * Test FilterGuide component.
+ */
+
 import {expect} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
 import FilterGuide from '../FilterGuide.component.js';

@@ -1,10 +1,12 @@
 'use strict';
-import React from 'react';
 
 /**
+ * @file
  * Render an element for a Filterguide list
- *
  */
+
+import React from 'react';
+
 const FilterGuideListElement = React.createClass({
   propTypes: {
     element: React.PropTypes.object.isRequired,

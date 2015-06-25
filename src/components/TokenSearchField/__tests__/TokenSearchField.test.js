@@ -1,4 +1,10 @@
 'use strict';
+
+/**
+ * @file
+ * Test TokenSearchField Component
+ */
+
 import {expect, assert} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
 import SearchField from '../TokenSearchField.component.js';
@@ -17,8 +23,10 @@ describe('Test the SearchField component', () => {
     let element = React.createElement(SearchField, state);
     let dom = TestUtils.renderIntoDocument(element);
     let searchField = TestUtils.findRenderedComponentWithType(dom, SearchField);
+    
     // Test state
     expect(searchField.props.query).to.have.length(2);
+
     // Test tokens are created
     let Tokens = TestUtils.scryRenderedComponentsWithType(dom, Token);
     expect(Tokens).to.have.length(2);
@@ -28,6 +36,7 @@ describe('Test the SearchField component', () => {
     expect(label).to.equal('test2');
     TestUtils.Simulate.click(TestUtils.findRenderedDOMComponentWithClass(Tokens[0], 'remove'));
     assert(updateSpy.calledWith([{value: 'test1', index: 1}]), 'called with remaining object');
+
     // remove last button
     label = TestUtils.findRenderedDOMComponentWithClass(Tokens[1], 'text').getDOMNode().textContent;
     expect(label).to.equal('test1');

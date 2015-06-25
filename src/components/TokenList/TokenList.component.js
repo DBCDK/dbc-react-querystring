@@ -1,5 +1,17 @@
 'use strict';
 
+/**
+ * @file
+ * Creates a list of tokens
+ *
+ * This component is only used internally for the TokenSearchField
+ *
+ * Properties:
+ * query: array of strings
+ * remove: callback function for removing elements with a certain index
+ *
+ */
+
 import React, {PropTypes} from 'react';
 import Token from './Token.component.js';
 
@@ -34,16 +46,6 @@ function getColor(type) {
   }
 }
 
-/**
- * Creates a list of tokens
- *
- * This component is only used internally for the TokenSearchField
- *
- * Properties:
- * query: array of strings
- * remove: callback function for removing elements with a certain index
- *
- */
 export default React.createClass({
   propTypes: {
     query: PropTypes.array.isRequired,

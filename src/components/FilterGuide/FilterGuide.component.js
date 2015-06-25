@@ -1,11 +1,13 @@
 'use strict';
+
+/**
+ * @file
+ * Create a List of words for filtering the searchresult
+ */
+
 import React from 'react';
 import FilterGuideList from './FilterGuideList.component.js';
 
-/**
- * Create a List of words for filtering the searchresult
- *
- */
 export const FilterGuide = React.createClass({
   propTypes: {
     elements: React.PropTypes.array.isRequired,

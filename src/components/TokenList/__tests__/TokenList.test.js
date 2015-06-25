@@ -1,4 +1,10 @@
 'use strict';
+
+/**
+ * @file
+ * Test Tokenlist component
+ */
+
 import {expect} from 'chai';
 import TestUtils from 'react/lib/ReactTestUtils';
 import TokenList from '../TokenList.component.js';

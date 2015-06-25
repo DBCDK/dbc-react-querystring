@@ -1,7 +1,7 @@
 'use strict';
-import React, {PropTypes} from 'react';
 
 /**
+ * @file
  * Token component displayed as a removable button in an inputfield
  *
  * This component is only used internally for the TokenList
@@ -12,12 +12,14 @@ import React, {PropTypes} from 'react';
  * remove: callback function for removing an element
  * index: index of the element
  */
+
+import React, {PropTypes} from 'react';
+
 export default React.createClass({
   propTypes: {
     color: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    remove: PropTypes.func.isRequired,
-    index: PropTypes.string
+    remove: PropTypes.func.isRequired
   },
 
   render() {

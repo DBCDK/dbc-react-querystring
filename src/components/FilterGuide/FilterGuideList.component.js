@@ -1,10 +1,14 @@
 'use strict';
+
+/**
+ * @file
+ * Render an array of words as a scrollable list
+ */
+
+
 import React from 'react';
 import FilterGuideListElement from './FilterGuideListElement.component.js';
 
-/**
- * Render an array of words as a scrollable list
- */
 const FilterGuideList = React.createClass({
   propTypes: {
     elements: React.PropTypes.array.isRequired,

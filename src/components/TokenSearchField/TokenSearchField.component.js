@@ -1,16 +1,19 @@
 'use strict';
-import React, {PropTypes} from 'react';
-import _ from 'lodash';
-import TokenList from '../TokenList/TokenList.component.js';
-import {updateQueryFromString} from '../../utils/QueryString.util';
 
 /**
+ * @file
  * Main component for showing searchstring as buttons
  *
  * Properties:
  * query: an array of query elements. Only supports string elements for now.
  * change optional callback function for when the input field is updated
  */
+
+import React, {PropTypes} from 'react';
+import _ from 'lodash';
+import TokenList from '../TokenList/TokenList.component.js';
+import {updateQueryFromString} from '../../utils/QueryString.util';
+
 const SearchField = React.createClass({
   propTypes: {
     query: PropTypes.array.isRequired,
@@ -37,7 +40,6 @@ const SearchField = React.createClass({
     // update query with the updated text string
     let text = this.state.text && this.state.text.trim() || '';
     let query = updateQueryFromString(text, this.props.query);
-    // let query = this.state.text && this.state.text.trim().split(' ') || this.props.query;
     // Send updated query to parent component
     this.props.update(query);
     // Update local state: remove focus and empty textfield
@@ -54,7 +56,6 @@ const SearchField = React.createClass({
   setFocus(state) {
     let text = state && this.getQueryTexts() || '';
     this.setState({hasFocus: state, text: text});
-    //this.props.update(this.props.query);
   },
 
   onChange(event) {
