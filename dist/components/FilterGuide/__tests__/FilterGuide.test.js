@@ -2,6 +2,11 @@
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+/**
+ * @file
+ * Test FilterGuide component.
+ */
+
 var _chai = require('chai');
 
 var _reactLibReactTestUtils = require('react/lib/ReactTestUtils');

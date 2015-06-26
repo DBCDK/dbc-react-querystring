@@ -35,7 +35,8 @@ var SearchField = _react2['default'].createClass({
   propTypes: {
     query: _react.PropTypes.array.isRequired,
     update: _react.PropTypes.func.isRequired,
-    change: _react.PropTypes.func
+    change: _react.PropTypes.func,
+    placeholder: _react2['default'].PropTypes.string
   },
 
   getInitialState: function getInitialState() {
@@ -125,7 +126,8 @@ var SearchField = _react2['default'].createClass({
               onFocus: this.setFocus.bind(this, true),
               onBlur: this.setFocus.bind(this, false),
               onClick: this.setFocus.bind(this, true),
-              value: hasFocus && text || ''
+              value: hasFocus && text || '',
+              placeholder: this.props.placeholder
             })
           ),
           _react2['default'].createElement(

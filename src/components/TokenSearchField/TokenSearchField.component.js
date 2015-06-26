@@ -18,7 +18,8 @@ const SearchField = React.createClass({
   propTypes: {
     query: PropTypes.array.isRequired,
     update: PropTypes.func.isRequired,
-    change: PropTypes.func
+    change: PropTypes.func,
+    placeholder: React.PropTypes.string
   },
 
   getInitialState() {
@@ -91,6 +92,7 @@ const SearchField = React.createClass({
                      onBlur={this.setFocus.bind(this, false)}
                      onClick={this.setFocus.bind(this, true)}
                      value={hasFocus && text || ''}
+                     placeholder={this.props.placeholder}
                 />
             </li>
             <li className='submit' >

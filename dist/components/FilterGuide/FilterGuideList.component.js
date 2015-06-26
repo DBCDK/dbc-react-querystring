@@ -1,9 +1,15 @@
 'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+/**
+ * @file
+ * Render an array of words as a scrollable list
+ */
 
 var _react = require('react');
 
@@ -13,9 +19,6 @@ var _FilterGuideListElementComponentJs = require('./FilterGuideListElement.compo
 
 var _FilterGuideListElementComponentJs2 = _interopRequireDefault(_FilterGuideListElementComponentJs);
 
-/**
- * Render an array of words as a scrollable list
- */
 var FilterGuideList = _react2['default'].createClass({
   displayName: 'FilterGuideList',
 
