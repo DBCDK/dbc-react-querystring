@@ -24,7 +24,8 @@ const SearchField = React.createClass({
   getInitialState() {
     return {
       value: '',
-      hasFocus: false
+      hasFocus: false,
+      text: this.getQueryTexts()
     };
   },
 
@@ -54,8 +55,8 @@ const SearchField = React.createClass({
   },
 
   setFocus(state) {
-    let text = state && this.getQueryTexts() || '';
-    this.setState({hasFocus: state, text: text});
+    let text = state && this.getQueryTexts() || this.state.text;
+    this.setState({hasFocus: state, text});
   },
 
   onChange(event) {
@@ -63,7 +64,7 @@ const SearchField = React.createClass({
     if (!this.state.hasFocus) {
       text = this.getQueryTexts() + ' ' + text;
     }
-    this.setState({text: text, hasFocus: true});
+    this.setState({text});
     if (this.props.change) {
       this.props.change(event.target.value);
     }
@@ -89,11 +90,11 @@ const SearchField = React.createClass({
                      onFocus={this.setFocus.bind(this, true)}
                      onBlur={this.setFocus.bind(this, false)}
                      onClick={this.setFocus.bind(this, true)}
-                     value={text}
+                     value={hasFocus && text || ''}
                 />
             </li>
             <li className='submit' >
-              <input className='button small' type='submit' value='søg' />
+              <input onClick={this.onSubmit} className='button small' type='submit' value='søg' />
             </li>
           </ul>
         </form>
