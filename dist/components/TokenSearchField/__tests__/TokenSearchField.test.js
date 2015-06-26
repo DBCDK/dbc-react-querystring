@@ -2,6 +2,11 @@
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+/**
+ * @file
+ * Test TokenSearchField Component
+ */
+
 var _chai = require('chai');
 
 var _reactLibReactTestUtils = require('react/lib/ReactTestUtils');
@@ -32,8 +37,10 @@ describe('Test the SearchField component', function () {
     var element = _react2['default'].createElement(_TokenSearchFieldComponentJs2['default'], state);
     var dom = _reactLibReactTestUtils2['default'].renderIntoDocument(element);
     var searchField = _reactLibReactTestUtils2['default'].findRenderedComponentWithType(dom, _TokenSearchFieldComponentJs2['default']);
+
     // Test state
     (0, _chai.expect)(searchField.props.query).to.have.length(2);
+
     // Test tokens are created
     var Tokens = _reactLibReactTestUtils2['default'].scryRenderedComponentsWithType(dom, _TokenListTokenComponentJs2['default']);
     (0, _chai.expect)(Tokens).to.have.length(2);
@@ -43,6 +50,7 @@ describe('Test the SearchField component', function () {
     (0, _chai.expect)(label).to.equal('test2');
     _reactLibReactTestUtils2['default'].Simulate.click(_reactLibReactTestUtils2['default'].findRenderedDOMComponentWithClass(Tokens[0], 'remove'));
     (0, _chai.assert)(updateSpy.calledWith([{ value: 'test1', index: 1 }]), 'called with remaining object');
+
     // remove last button
     label = _reactLibReactTestUtils2['default'].findRenderedDOMComponentWithClass(Tokens[1], 'text').getDOMNode().textContent;
     (0, _chai.expect)(label).to.equal('test1');

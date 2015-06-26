@@ -1,9 +1,19 @@
 'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+/**
+ * @file
+ * Main component for showing searchstring as buttons
+ *
+ * Properties:
+ * query: an array of query elements. Only supports string elements for now.
+ * change optional callback function for when the input field is updated
+ */
 
 var _react = require('react');
 
@@ -19,20 +29,14 @@ var _TokenListTokenListComponentJs2 = _interopRequireDefault(_TokenListTokenList
 
 var _utilsQueryStringUtil = require('../../utils/QueryString.util');
 
-/**
- * Main component for showing searchstring as buttons
- *
- * Properties:
- * query: an array of query elements. Only supports string elements for now.
- * change optional callback function for when the input field is updated
- */
 var SearchField = _react2['default'].createClass({
   displayName: 'SearchField',
 
   propTypes: {
     query: _react.PropTypes.array.isRequired,
     update: _react.PropTypes.func.isRequired,
-    change: _react.PropTypes.func
+    change: _react.PropTypes.func,
+    placeholder: _react2['default'].PropTypes.string
   },
 
   getInitialState: function getInitialState() {
@@ -56,7 +60,6 @@ var SearchField = _react2['default'].createClass({
     // update query with the updated text string
     var text = this.state.text && this.state.text.trim() || '';
     var query = (0, _utilsQueryStringUtil.updateQueryFromString)(text, this.props.query);
-    // let query = this.state.text && this.state.text.trim().split(' ') || this.props.query;
     // Send updated query to parent component
     this.props.update(query);
     // Update local state: remove focus and empty textfield
@@ -75,7 +78,6 @@ var SearchField = _react2['default'].createClass({
   setFocus: function setFocus(state) {
     var text = state && this.getQueryTexts() || '';
     this.setState({ hasFocus: state, text: text });
-    //this.props.update(this.props.query);
   },
 
   onChange: function onChange(event) {
@@ -123,7 +125,8 @@ var SearchField = _react2['default'].createClass({
               onFocus: this.setFocus.bind(this, true),
               onBlur: this.setFocus.bind(this, false),
               onClick: this.setFocus.bind(this, true),
-              value: text
+              value: text,
+              placeholder: this.props.placeholder
             })
           ),
           _react2['default'].createElement(

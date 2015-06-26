@@ -1,15 +1,13 @@
 'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
 /**
+ * @file
  * Token component displayed as a removable button in an inputfield
  *
  * This component is only used internally for the TokenList
@@ -20,14 +18,18 @@ var _react2 = _interopRequireDefault(_react);
  * remove: callback function for removing an element
  * index: index of the element
  */
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
 exports['default'] = _react2['default'].createClass({
   displayName: 'Token.component',
 
   propTypes: {
     color: _react.PropTypes.string.isRequired,
     text: _react.PropTypes.string.isRequired,
-    remove: _react.PropTypes.func.isRequired,
-    index: _react.PropTypes.string
+    remove: _react.PropTypes.func.isRequired
   },
 
   render: function render() {

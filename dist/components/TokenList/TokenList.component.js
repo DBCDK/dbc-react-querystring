@@ -6,6 +6,18 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+/**
+ * @file
+ * Creates a list of tokens
+ *
+ * This component is only used internally for the TokenSearchField
+ *
+ * Properties:
+ * query: array of strings
+ * remove: callback function for removing elements with a certain index
+ *
+ */
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -45,16 +57,6 @@ function getColor(type) {
   }
 }
 
-/**
- * Creates a list of tokens
- *
- * This component is only used internally for the TokenSearchField
- *
- * Properties:
- * query: array of strings
- * remove: callback function for removing elements with a certain index
- *
- */
 exports['default'] = _react2['default'].createClass({
   displayName: 'TokenList.component',
 

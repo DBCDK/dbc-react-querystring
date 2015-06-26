@@ -1,9 +1,15 @@
 'use strict';
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+/**
+ * @file
+ * Create a List of words for filtering the searchresult
+ */
 
 var _react = require('react');
 
@@ -13,10 +19,6 @@ var _FilterGuideListComponentJs = require('./FilterGuideList.component.js');
 
 var _FilterGuideListComponentJs2 = _interopRequireDefault(_FilterGuideListComponentJs);
 
-/**
- * Create a List of words for filtering the searchresult
- *
- */
 var FilterGuide = _react2['default'].createClass({
   displayName: 'FilterGuide',
 
