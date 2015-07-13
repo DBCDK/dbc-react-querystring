@@ -23,7 +23,7 @@ describe('Test the SearchField component', () => {
     let element = React.createElement(SearchField, state);
     let dom = TestUtils.renderIntoDocument(element);
     let searchField = TestUtils.findRenderedComponentWithType(dom, SearchField);
-    
+
     // Test state
     expect(searchField.props.query).to.have.length(2);
 
