@@ -1,8 +1,10 @@
+'use strict';
+
 /**
  * Config file for webpack
  */
 
-var webpack = require('webpack');
+require('webpack');
 
 /**
  * Setup webpack to transpile ES6 and jsx + handle scss files
