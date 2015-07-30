@@ -56,6 +56,9 @@ const SearchField = React.createClass({
   },
 
   setFocus(state) {
+    if (this.props.focus) {
+      this.props.focus(state);
+    }
     let text = state && this.getQueryTexts() || this.state.text;
     this.setState({hasFocus: state, text});
   },
