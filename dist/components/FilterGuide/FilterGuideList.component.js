@@ -1,15 +1,15 @@
 'use strict';
 
+/**
+ * @file
+ * Render an array of words as a scrollable list
+ */
+
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-/**
- * @file
- * Render an array of words as a scrollable list
- */
 
 var _react = require('react');
 

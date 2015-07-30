@@ -1,11 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 /**
  * @file
  * Creates a list of tokens
@@ -18,13 +12,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  *
  */
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
 var _TokenComponentJs = require('./Token.component.js');
-
-var _TokenComponentJs2 = _interopRequireDefault(_TokenComponentJs);
 
 /**
  * Get a random color. This function is used for development only.
@@ -33,6 +31,9 @@ var _TokenComponentJs2 = _interopRequireDefault(_TokenComponentJs);
  * @returns {string}
  * @private
  */
+
+var _TokenComponentJs2 = _interopRequireDefault(_TokenComponentJs);
+
 function _getRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
   var color = '#';
@@ -79,11 +80,11 @@ exports['default'] = _react2['default'].createClass({
 
   render: function render() {
     var _props = this.props;
-    var query = _props.query;
-    var remove = _props.remove;
 
     // The order of tokens is reversed to handle that last token should be visible.
     // In the CSS direction is set to rlt, reversing the order again
+    var query = _props.query;
+    var remove = _props.remove;
     var tokens = query.map(function (element) {
 
       return _react2['default'].createElement(_TokenComponentJs2['default'], {

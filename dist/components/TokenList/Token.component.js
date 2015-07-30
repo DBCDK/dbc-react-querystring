@@ -1,11 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 /**
  * @file
  * Token component displayed as a removable button in an inputfield
@@ -18,6 +12,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  * remove: callback function for removing an element
  * index: index of the element
  */
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
@@ -34,11 +34,11 @@ exports['default'] = _react2['default'].createClass({
 
   render: function render() {
     var _props = this.props;
+
+    // Background color is dynamic and therefore set inline
     var color = _props.color;
     var text = _props.text;
     var remove = _props.remove;
-
-    // Background color is dynamic and therefore set inline
     var style = {
       backgroundColor: color
     };
@@ -48,12 +48,12 @@ exports['default'] = _react2['default'].createClass({
       { className: 'token', style: style },
       _react2['default'].createElement(
         'span',
-        { className: 'text' },
+        { className: "text" },
         text
       ),
       _react2['default'].createElement(
         'span',
-        { className: 'remove', onClick: remove },
+        { className: "remove", onClick: remove },
         'x'
       )
     );

@@ -1,11 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 /**
  * @file
  * Main component for showing searchstring as buttons
@@ -14,6 +8,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
  * query: an array of query elements. Only supports string elements for now.
  * change optional callback function for when the input field is updated
  */
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
@@ -77,6 +77,9 @@ var SearchField = _react2['default'].createClass({
   },
 
   setFocus: function setFocus(state) {
+    if (this.props.focus) {
+      this.props.focus(state);
+    }
     var text = state && this.getQueryTexts() || this.state.text;
     this.setState({ hasFocus: state, text: text });
   },
