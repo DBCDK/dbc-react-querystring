@@ -1,6 +1,6 @@
 # dbc-react-querystring
 
-**Deprecated! Use [dbc-react-querystring](https://github.com/DBCDK/dbc-react-querystring) instead.**
+**Deprecated! Use [dbc-react-components](https://github.com/DBCDK/dbc-react-components) instead.**
 
 ## FilterGuide
 The FilterGuide component shows a list of words that can be added to a query. 
