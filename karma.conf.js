@@ -13,7 +13,7 @@ module.exports = function(config) {
     },
     reporters: ['mocha', 'dots', 'junit'],
     junitReporter: {
-      outputFile: 'output/test-results.xml'
+      outputDir: 'output'
     },
     port: 9876,
     colors: true,
