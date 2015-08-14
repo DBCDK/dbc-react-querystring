@@ -98,6 +98,7 @@ const SearchField = React.createClass({
                      placeholder={this.props.placeholder}
                 />
             </li>
+            <li className='token-searchfield--spinner'></li>
             <li className='submit' >
               <input onClick={this.onSubmit} className='button small' type='submit' value='søg' />
             </li>
