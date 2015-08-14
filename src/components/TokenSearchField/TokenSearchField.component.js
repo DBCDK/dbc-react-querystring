@@ -94,10 +94,11 @@ const SearchField = React.createClass({
                      onFocus={this.setFocus.bind(this, true)}
                      onBlur={this.setFocus.bind(this, false)}
                      onClick={this.setFocus.bind(this, true)}
-                     value={hasFocus && text || ''}
+                     value={text || ''}
                      placeholder={this.props.placeholder}
                 />
             </li>
+            <li className='token-searchfield--spinner'></li>
             <li className='submit' >
               <input onClick={this.onSubmit} className='button small' type='submit' value='søg' />
             </li>
