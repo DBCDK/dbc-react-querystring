@@ -129,10 +129,11 @@ var SearchField = _react2['default'].createClass({
               onFocus: this.setFocus.bind(this, true),
               onBlur: this.setFocus.bind(this, false),
               onClick: this.setFocus.bind(this, true),
-              value: hasFocus && text || '',
+              value: text || '',
               placeholder: this.props.placeholder
             })
           ),
+          _react2['default'].createElement('li', { className: 'token-searchfield--spinner' }),
           _react2['default'].createElement(
             'li',
             { className: 'submit' },

@@ -9,15 +9,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _lodash = require('lodash');
 
+var _lodash2 = _interopRequireDefault(_lodash);
+
 /**
  * Creates a new query object with a value and type key
  *
  * @param stringElements
  * @returns {Array}
  */
-
-var _lodash2 = _interopRequireDefault(_lodash);
-
 function addElementsFromString(stringElements) {
   var newElementValues = stringElements.split(' ');
 

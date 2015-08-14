@@ -24,6 +24,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _TokenComponentJs = require('./Token.component.js');
 
+var _TokenComponentJs2 = _interopRequireDefault(_TokenComponentJs);
+
 /**
  * Get a random color. This function is used for development only.
  * Should be exchanged with a colorscheme
@@ -31,9 +33,6 @@ var _TokenComponentJs = require('./Token.component.js');
  * @returns {string}
  * @private
  */
-
-var _TokenComponentJs2 = _interopRequireDefault(_TokenComponentJs);
-
 function _getRandomColor() {
   var letters = '0123456789ABCDEF'.split('');
   var color = '#';
@@ -80,11 +79,11 @@ exports['default'] = _react2['default'].createClass({
 
   render: function render() {
     var _props = this.props;
+    var query = _props.query;
+    var remove = _props.remove;
 
     // The order of tokens is reversed to handle that last token should be visible.
     // In the CSS direction is set to rlt, reversing the order again
-    var query = _props.query;
-    var remove = _props.remove;
     var tokens = query.map(function (element) {
 
       return _react2['default'].createElement(_TokenComponentJs2['default'], {
